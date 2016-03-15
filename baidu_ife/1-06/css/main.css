@@ -129,11 +129,11 @@ div.content {
     font-size: .7rem;
     color: #938e8c;
     text-align: justify;
-    white-space: pre-wrap;
+    white-space: pre-line;
     word-spacing: 20px;
 }
 .second .how .content {
-    line-height: 100%;
+    line-height: 200%;
 }
 .second .content span {
     color: #d2984f;
