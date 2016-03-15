@@ -147,7 +147,7 @@ div.content {
 }
 .second .content span {
     color: #d2984f;
-    font-family: yaHei;
+    font-family: 'Microsoft YaHei', yaHei;
 }
 .second .content span.percent {
     color: #938e8c;
@@ -195,7 +195,7 @@ div.content {
     float: left;
     padding: 0 1rem 0 0;
     color: #f4e328;
-    font-family: yaHei;
+    font-family: 'Microsoft YaHei', yaHei;
     font-style: normal;
     font-size: 5rem;
 }
