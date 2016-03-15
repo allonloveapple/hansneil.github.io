@@ -14,26 +14,32 @@ body {
 }
 .content-wrapper {
     position: relative;
-    width: 920px;
+    width: 892px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 44px;
     background-color: #fff;
 }
 header {
     width: 100%;
-    overflow: auto;
+    height: 61px;
+    overflow: hidden;
+    font-family: "Adobe Heiti Std";
+    font-size: 12px;
     border-bottom: .2rem solid #938e8c;
 }
 
 .logo {
     float: left;
-    padding: 3rem 2rem 0 .5rem;
+    width: 110px;
+    height: 100%;
     color: white;
+    line-height: 100px;
+    padding-left: 5px;
     background-color: #d45d5c;
 }
 .date {
     float: right;
-    padding-top: 3rem;
+    line-height: 100px;
     color: #d45d5c;
 }
 .clear-fix {
@@ -45,13 +51,14 @@ div.content {
 .left-img {
     float: left;
     position: relative;
+    width: 641px;
+    height: 301px;
 }
 .shade {
     position: absolute;
     width: 30%;
-    height: auto;
+    height: 100%;
     top: 0;
-    bottom: .2rem;
 }
 .left {
     left: 0;
@@ -63,42 +70,44 @@ div.content {
 }
 .right-banner {
     float: right;
-    width: 220px;
-    border-top: .2rem solid rgba(204, 118, 128, 1);
+    width: 203px;
+    border-top: 2px solid rgba(204, 118, 128, 1);
 }
 .banner-title {
     text-decoration: underline;
 }
 .banner-title:first-letter {
-    font-size: 1.5rem;
+    font-size: 24px;
 }
 .banner-desp {
-    font-style: italic;
-    font-size: .75rem;
+    font-family: "Kaiti SC";
+    font-size: 12px;
+    line-height: 10px;
     color: #938e8c;
 }
 .big-number {
-    font-size: 8rem;
+    font-size: 116px;
     font-weight: bolder;
+    font-style: italic;
     color: #75b86c;
-    line-height: 100%;
 }
 .small-number {
     display: inline-block;
-    font-size: 4rem;
+    font-size: 55px;
     color: rgba(204, 118, 128, 1)
 }
 .smaller-number {
     display: inline-block;
+    font-size: 21px;
     color: rgba(204, 118, 128, 1);
 }
 .smaller-number span {
     display: block;
-    font-size: .5rem;
+    font-size: 12px;
     color: #938e8c;
 }
 .second {
-    width: 600px;
+    width: 700px;
     display: flex;
     margin: 1rem 0;
     column-count: 3;
@@ -126,35 +135,41 @@ div.content {
     color: #75b86c;
 }
 .second .content {
-    font-size: .7rem;
+    font-family: "Songti SC";
+    font-size: 12px;
+    line-height: 16px;
     color: #938e8c;
     text-align: justify;
     white-space: pre-line;
     word-spacing: 20px;
 }
 .second .how .content {
-    line-height: 200%;
+    line-height: 160%;
 }
 .second .content span {
     color: #d2984f;
+    font-family: yaHei;
 }
-
+.second .content span.percent {
+    color: #938e8c;
+}
 .third {
     width: 100%;
     display: flex;
     margin: 4rem 0;
 }
 .third .word {
-    flex: 9;
-    margin-right: 3rem;
+    width: 415px;
+    font-family: "Adobe Heiti Std";
     color: #10456b;
 }
 .third .img {
     position: relative;
-    flex: 10;
+    width: 458px;
+    margin-left: 19px;
 }
 .third .title {
-    font-size: 2rem;
+    font-size: 40px;
 }
 .third .title.news {
     line-height: 100%;
@@ -166,11 +181,12 @@ div.content {
 .third .first-word {
     color: #f4e328;
     font-style: italic;
-    font-size: 3rem;
+    font-size: 72px;
 }
 .third .news-content {
     margin-top: 1rem;
     font-size: .7rem;
+    font-family: 'Songti SC';
     color: #938e8c;
     text-align: justify;
     letter-spacing: 2px;
@@ -180,6 +196,7 @@ div.content {
     float: left;
     padding: 0 1rem 0 0;
     color: #f4e328;
+    font-family: yaHei;
     font-style: normal;
     font-size: 5rem;
 }
@@ -190,12 +207,14 @@ div.content {
 }
 .third .img-wrapper {
     position: relative;
+    width: 458px;
+    height: 257px;
 }
 .third .img-desp {
     position: absolute;
     width: 100%;
     height: 25%;
-    bottom: .2rem;
+    bottom: 0;
     background-color: rgba(3, 0, 0, .4);
 }
 .third .img-desp .img-title {
@@ -223,8 +242,8 @@ div.content {
 }
 .third .red-sign {
     position: absolute;
-    top: 50%;
-    right: 48%;
+    width: 260px;
+    height: 160px;
     bottom: 0;
     left: 0;
     background-color: #d45d5c;
@@ -233,7 +252,7 @@ div.content {
     float: left;
     margin: 2rem .5rem 2rem 1rem;
     padding: 0 .2rem;
-    font-size: 6rem;
+    font-size: 110px;
     line-height: 80%;
     color: #ffffff;
     border-right: .15rem solid #ffffff;
@@ -242,39 +261,49 @@ div.content {
     width: 60%;
     float: left;
     margin: 2rem 0;
-    font-size: .7rem;
+    font-family: "Heiti SC";
+    font-size: 12px;
     color: #ffffff;
 }
 .third .red-sign .right-other span{
     display: block;
     font-size: 1rem;
     font-style: italic;
+    line-height: 24px;
 }
 .third .index li{
-    margin: 1rem 3rem
+    margin: 1rem 3rem;
+    font-family: "Songti SC";
+    list-style: inside url('../img/triangle.png');
+}
+.third .index li span {
+    font-size: 12px;
+    font-style: italic;
 }
 .third .quote {
     position: absolute;
-    top: 50%;
+    top: 55%;
     right: 5%;
     bottom: 0;
-    left: 55%;
+    left: 60%;
     line-height: 100%;
+    font-size: 14px;
+    font-family: "Heiti TC";
     text-align: justify;
 }
-.third .quote:before {
-    content: '"';
-    font-size: 2rem;
-    line-height: 50%;
-    color: #d45d5c;
-}
-.third .quote:after {
-    content: ',,';
-    line-height: 50%;
-    font-size: 2rem;
+.third .quote span{
+    font-size: 72px;
     color: #d45d5c;
 }
 
+.third .quote span.left-quote {
+    float: left;
+}
+
+.third .quote span.right-quote {
+    float: right;
+    line-height: 50%;
+}
 footer {
     border-top: .1rem solid #938e8c;
     text-align: right;
