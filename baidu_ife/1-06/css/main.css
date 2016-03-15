@@ -74,7 +74,8 @@ div.content {
     border-top: 2px solid rgba(204, 118, 128, 1);
 }
 .banner-title {
-    text-decoration: underline;
+    display: inline-block;
+    border-bottom: 2px solid #000;
 }
 .banner-title:first-letter {
     font-size: 24px;
