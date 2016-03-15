@@ -276,6 +276,7 @@ div.content {
     list-style: inside url('../img/triangle.png');
 }
 .third .index li span {
+    float: right;
     font-size: 12px;
     font-style: italic;
 }
