@@ -257,7 +257,7 @@ a {
     border: .1rem solid rgba(78, 214, 208, 1);
     color: rgba(78, 214, 208, 1);
     border-radius: .5rem;
-    box-shadow: 0px 0px 15px rgba(129, 145, 152, .3);
+    box-shadow: 0px 0px 15px rgba(129, 145, 152, 1);
     transition: all .5s ease-in-out;
 }
 

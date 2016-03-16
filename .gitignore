@@ -3,3 +3,9 @@
 
 # Idea
 **/.idea/
+
+# SASS
+**/.sass-cache/
+
+# PSD
+**/*.psd

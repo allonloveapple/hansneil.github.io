@@ -1,0 +1,645 @@
+@import "variables";
+@import "susyone";
+@import "compass";
+header {
+  width: 100%;
+  height: 3.75rem;
+  @include transition(all 0.2s ease);
+  & .left-header {
+    float: left;
+    margin-top: 1rem;
+    margin-left: 3.75rem;
+    & .title {
+      width: 5rem;
+      height: 2rem;
+      background: url("../img/head_book.png") no-repeat;
+      padding-left: 2.5rem;
+      padding-top: .5rem;
+    }
+  }
+  & nav {
+    float: right;
+    margin-top: 1.2rem;
+    margin-left: 3.75rem;
+    margin-right: 2rem;
+    & li {
+      display: inline-block;
+      & a {
+        display: inline-block;
+        width: 4rem;
+        margin-right: 1rem;
+        padding-bottom: 1.1rem;
+        font-size: .8rem;
+        text-align: center;
+        text-decoration: none;
+        color: $color1;
+      }
+      &:last-child a {
+        background: url("../img/user.png") no-repeat 0px 0px;
+        color: $color2;
+        &:hover {
+          border-bottom: 0px solid $color2;
+        }
+      }
+    }
+    & .selected, & a:hover {
+      color: $color2;
+      border-bottom: 3px solid $color2;
+    }
+  }
+}
+.content {
+  width: 100%;
+  height: 100%;
+  & .section {
+    width: 100%;
+  }
+  & .mask {
+    width: 100%;
+    height: 100%;
+    background-color: $color3;
+    &.info {
+      background-color: $color7;
+    }
+    &.darker {
+      background-color: $color13;
+    }
+  }
+  & .screen {
+    position: relative;
+    height: 690px;
+    background: url("../img/main_page.jpg") no-repeat;
+    background-size: cover;
+    @include transition(all 0.2s ease);
+    & .new-life {
+      position: absolute;
+      top: 25%;
+      right: 50%;
+      bottom: 20%;
+      left: 10%;
+      color: $color4;
+      & .theme {
+        font-size: 4rem;
+      }
+      & .zh-theme {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        opacity: .8;
+      }
+      & .enter-button {
+        width: 50%;
+        height: 10%;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 1.5rem;
+        background-color: $color2;
+        text-align: center;
+        opacity: .8;
+        &:hover {
+          border-radius: 10px;
+          cursor: pointer;
+          opacity: .9;
+        }
+      }
+    }
+  }
+  & .items {
+    display: flex;
+    @include transition(all 0.2s ease);
+    & .item {
+      width: 25%;
+      height: 100%;
+      & .icon {
+        width: 50px;
+        height: 50px;
+        margin: 3rem auto;
+        background: url("../img/ico_sprite.png") no-repeat;
+        &:hover {
+          background: url("../img/ico_sprite_hover.png") no-repeat;
+        }
+        &.round {
+          background-position: 0 0;
+        }
+        &.flag {
+          background-position: -50px 0;
+        }
+        &.flower {
+          background-position: -100px 0;
+        }
+        &.rect {
+          background-position: -150px 0;
+        }
+
+      }
+      & .words {
+        width: 10rem;
+        margin: 0 auto;
+        color: $color1;
+        text-align: center;
+        font-size: .8rem;
+      }
+      & .words-wrapper {
+        width: 100%;
+        border-right: 2px solid $color1;
+      }
+    }
+  }
+  & .activity {
+    & .activity-title {
+      background-color: $color5;
+      height: 360px;
+      margin-top: 5rem;
+      overflow: hidden;
+      & .book-icon {
+        width: 91px;
+        height: 92px;
+        margin: 5rem auto 2rem auto;
+        background: url("../img/large_book.png") no-repeat;
+      }
+      & .book-words {
+        text-align: center;
+        font-size: 3.5rem;
+        color: $color6;
+      }
+    }
+  }
+  & .activity-info {
+    position: relative;
+    height: 340px;
+    overflow: visible;
+    background: url("../img/activity_map.jpg") no-repeat;
+    background-size: cover;
+    & .info-words {
+      position: absolute;
+      top: 15%;
+      right: 0;
+      left: 0;
+      text-align: center;
+      color: $color4;
+      font-size: 1.4rem;
+      & .words-wrapper {
+        opacity: .8;
+      }
+      & .bar {
+        width: 2rem;
+        height: .2rem;
+        background-color: $color4;
+        margin: .5rem auto 1rem auto;
+      }
+      & .content {
+        font-size: .8rem;
+      }
+      & .search-box {
+        margin-top: 3rem;
+        display: inline-block;
+        & .search-item {
+          display: inline-block;
+          position: relative;
+          width: 240px;
+          height: 40px;
+          margin-right: 1rem;
+          background-color: $color4;
+          border: 2px solid rgba(170, 52, 51, 0);
+          & .choose {
+            float: left;
+            font-size: .8rem;
+            color: $color1;
+            text-align: left;
+            padding-top: .7rem;
+            padding-left: .5rem;
+          }
+          & .envelope {
+            float: right;
+            width: 18px;
+            height: 17px;
+            margin: .6rem .6rem 0 0;
+            background: url("../img/envolope.png") no-repeat;
+          }
+          &:last-child {
+            background-color: $color2;
+            & .choose {
+              color: $color4;
+              width: 100%;
+              text-align: center;
+            }
+          }
+          &.selected, &:hover {
+            border: 2px solid $color8;
+            cursor: pointer;
+          }
+        }
+      }
+      & .child-item {
+        position: absolute;
+        margin-top: 42px;
+        margin-left: -2px;
+        & li {
+          width: 240px;
+          list-style: none inside;
+          background-color: $color9;
+          border-left: 2px solid $color8;
+          border-right: 2px solid $color8;
+          color: $color1;
+          & p {
+            font-size: .8rem;
+            text-align: left;
+            padding: 8px 0 8px 42px;
+          }
+          &:last-child {
+            border-bottom: 2px solid $color8;
+          }
+          &:hover, &.selected {
+            background-color: $color8;
+            color: $color9;
+            & .list-item {
+              float: left;
+              margin: .6rem 0 0 .5rem;
+              width: 12px;
+              height: 8px;
+              background: url("../img/list_item.png") no-repeat;
+            }
+          }
+        }
+      }
+    }
+  }
+  & .activity-place {
+    display: flex;
+    height: 605px;
+    background-color: $color10;
+    padding: 0 10rem;
+    overflow: hidden;
+    @include transition(all 0.2s ease);
+    & .place {
+      margin-top: 8rem;
+      flex: 1;
+      text-align: center;
+      & .big {
+        display: none;
+        color: $color1;
+        font-size: .8rem;
+        & span {
+          display: block;
+          width: 100%;
+          margin: .2rem auto;
+          font-size: 1.2rem;
+          color: $color11;
+        }
+      }
+      & .small {
+        display: block;
+        color: $color1;
+        font-size: .8rem;
+        & span {
+          display: block;
+          width: 100%;
+          margin: .2rem auto;
+          font-size: 1rem;
+          color: $color11;
+        }
+      }
+      & .activity-poster {
+        width: 203px;
+        height: 312px;
+        margin: .5rem auto;
+        background: url("../img/place_sprite.png") no-repeat;
+        border: 5px solid $color4;
+        &.beijing {
+          background-position: -23px 0;
+        }
+        &.shanghai {
+          background-position: -273px 0;
+        }
+        &.shenzhen {
+          background-position: -523px 0;
+        }
+        &.hongkong {
+          background-position: -773px 0;
+        }
+      }
+      &.selected, &:hover{
+        & .big {
+          display: block;
+        }
+        & .small {
+          display: none;
+        }
+      }
+    }
+  }
+  & .triangle {
+    position: absolute;
+    width: 26px;
+    height: 31px;
+    right: 0;
+    top: 50%;
+    background: url("../img/triangle.png") no-repeat;
+    @include translate(0, -50%);
+  }
+  & .activity-detail {
+    overflow: hidden;
+    display: flex;
+    min-height: 567px;
+    @include transition(all 0.2s ease);
+    & .poster {
+      position: relative;
+      flex: 2 0 850px;
+      background: url("../img/activity_detail.jpg") no-repeat;
+      background-size: cover;
+    }
+    & .poster-content {
+      position: absolute;
+      top: 25%;
+      right: 0;
+      left: 0;
+      text-align: center;
+      color: $color4;
+      & .new-world {
+        font-size: 3rem;
+      }
+      & .time {
+        font-size: 8rem;
+        line-height: 80%;
+        margin-bottom: 2rem;
+      }
+      & .footer {
+        font-size: 1.5rem;
+        line-height: 150%;
+      }
+    }
+    & .activity-content {
+      flex: 1 1 430px;
+      margin-top: 10%;
+      text-align: center;
+      & span {
+        color: $color2;
+      }
+      & .title {
+        font-size: 1.5rem;
+      }
+      & .content {
+        width: 60%;
+        margin: 2rem auto;
+        text-align: left;
+        color: $color1;
+        font-size: .8rem;
+        line-height: 250%;
+      }
+      & .button {
+        margin: 3rem auto 1rem auto;
+        width: 120px;
+        padding: .8rem 0;
+        border: 1px solid $color2;
+        color: $color2;
+        &:hover {
+          cursor: pointer;
+          box-shadow: 2px 2px 0 $color2;
+        }
+      }
+      & ul {
+        display: inline-block;
+        & li {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          margin: 0 .3rem;
+          border: 1px solid $color1;
+          border-radius: 50%;
+          &.selected, &:hover {
+            background-color: $color1;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  & .button {
+    @include transition(all 0.2s ease);
+    margin: 3rem auto 1rem auto;
+    width: 120px;
+    padding: .8rem 0;
+    border: 1px solid $color2;
+    color: $color2;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 3px 3px 0 $color2;
+    }
+  }
+  & .more-info {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    height: 521px;
+    @include transition(all 0.2s ease);
+    & .more {
+      flex: 1 1 430px;
+      height: 521px;
+    }
+    & .less {
+      flex: 1 1 425px;
+      box-sizing: border-box;
+      text-align: center;
+      padding: 10% 5%;
+      color: $color4;
+      font-size: 1.5rem;
+    }
+    & .red {
+      background-color: $color12;
+    }
+    & .black {
+      color: $color11;
+      & .bar {
+        background-color: $color1;
+      }
+      & .red-btn{
+        padding: .8rem .8rem;
+      }
+    }
+    & .photo {
+      position: relative;
+      background: url("../img/more_photo.jpg") no-repeat;
+      background-size: cover;
+      & .reverse {
+        left: 0;
+        @include transform(rotate(180deg));
+      }
+    }
+    & .bar {
+      width: 2rem;
+      height: 2px;
+      background-color: $color5;
+      margin: 2rem auto;
+    }
+    & .white {
+      color: $color4;
+      border: 1px solid $color4;
+      padding: .8rem .8rem;
+      &:hover {
+        box-shadow: 3px 3px 0 $color4;
+      }
+    }
+  }
+  & .volunteer {
+    margin-top: 9rem;
+    text-align: center;
+    font-size: .8rem;
+    color: $color1;
+    & .title {
+      color: $color11;
+      font-size: 1.5rem;
+    }
+    & .bar {
+      width: 2rem;
+      height: 3px;
+      background-color: $color2;
+      margin: .5rem auto 1rem auto;
+    }
+    & .join-us {
+      display: flex;
+      margin-top: 5rem;
+      & .announce {
+        flex: 1;
+        text-align: left;
+        margin-left: 10%;
+        & .name {
+          color: $color11;
+          margin-top: .5rem;
+          margin-bottom: .5rem;
+        }
+        & .content {
+          width: 280px;
+          line-height: 200%;
+          margin-bottom: 2rem;
+          & span {
+            float: right;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      & .join-table {
+        flex: 2;
+        text-align: left;
+        color: $color11;
+        & table {
+          width: 80%;
+        }
+        & input {
+          width: 80%;
+          height: 100%;
+          padding: .8rem 1.5rem;
+          margin-bottom: .5rem;
+          background-color: $color14;
+          border: none;
+          outline: none;
+        }
+        & .one-item textarea {
+          width: 175%;
+          padding: .8rem 1.5rem 5rem 1.5rem;
+          margin-bottom: .5rem;
+          background-color: $color14;
+          border: none;
+          resize: none;
+          outline: none;
+        }
+        & .submit {
+          width: 190%;
+          background-color: $color14;
+          text-align: center;
+          padding: .8rem 0;
+          font-size: 1rem;
+          &:hover {
+            cursor: pointer;
+            background-color: #d6d6da;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  position: relative;
+  background-color: $color15;
+  text-align: center;
+  margin: 5rem auto 0 auto;
+  padding: 5rem 0;
+  color: $color4;
+  & .contact {
+    margin-bottom: 1rem;
+  }
+  & .small {
+    font-size: .6rem;
+  }
+  & .email {
+    display: inline-block;
+    margin-top: 2rem;
+    box-shadow: 0px 0px 15px $color3;
+    & input {
+      box-sizing: border-box;
+      width: 350px;
+      padding: .7rem;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      color: $color1;
+    }
+    & span {
+      display: inline-block;
+      width: 50px;
+      text-align: center;
+      background-color: $color16;
+      font-size: .8rem;
+      padding: .8rem .5rem .65rem .5rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  & ul {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    & li {
+      display: inline-block;
+      width: 30px;
+      height: 25px;
+      margin: 0 .5rem;
+      background: url("../img/contact_icon.png") no-repeat;
+      &.qq {
+        background-position: 0px 0px;
+      }
+      &.weibo {
+        background-position: -30px 0px;
+      }
+      &.skype {
+        background-position: -60px 0px;
+      }
+      &.internet {
+        background-position: -90px 0px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  & .footer {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2rem 2rem;
+    font-size: .8rem;
+    background-color: $color17;
+    & .left {
+      float: left;
+    }
+    & .right {
+      float: right;
+      text-decoration: none;
+      color: $color4;
+    }
+  }
+}
