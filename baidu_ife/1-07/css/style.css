@@ -632,17 +632,17 @@ header nav .selected, header nav a:hover {
   margin-bottom: .5rem;
 }
 /* line 510, ../sass/partitial/_layout.scss */
-.content .volunteer .join-us .announce .content {
+.content .volunteer .join-us .announce .a-content {
   width: 280px;
   line-height: 200%;
   margin-bottom: 2rem;
 }
 /* line 514, ../sass/partitial/_layout.scss */
-.content .volunteer .join-us .announce .content span {
+.content .volunteer .join-us .announce .a-content span {
   float: right;
 }
 /* line 516, ../sass/partitial/_layout.scss */
-.content .volunteer .join-us .announce .content span:hover {
+.content .volunteer .join-us .announce .a-content span:hover {
   cursor: pointer;
 }
 /* line 522, ../sass/partitial/_layout.scss */
