@@ -652,24 +652,23 @@ header nav .selected, header nav a:hover {
   color: #000000;
 }
 /* line 526, ../sass/partitial/_layout.scss */
-.content .volunteer .join-us .join-table table {
+.content .volunteer .join-us .join-table form {
+  position: relative;
   width: 80%;
 }
-/* line 529, ../sass/partitial/_layout.scss */
+/* line 530, ../sass/partitial/_layout.scss */
 .content .volunteer .join-us .join-table input {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+  width: 42.5%;
   padding: .8rem 1.5rem;
   margin-bottom: .5rem;
   background-color: #ededee;
   border: none;
   outline: none;
 }
-/* line 539, ../sass/partitial/_layout.scss */
-.content .volunteer .join-us .join-table .one-item textarea {
+/* line 538, ../sass/partitial/_layout.scss */
+.content .volunteer .join-us .join-table textarea {
   box-sizing: border-box;
-  width: 193%;
+  width: 100%;
   padding: .8rem 1.5rem 5rem 1.5rem;
   margin-bottom: .5rem;
   background-color: #ededee;
@@ -677,21 +676,21 @@ header nav .selected, header nav a:hover {
   resize: none;
   outline: none;
 }
-/* line 549, ../sass/partitial/_layout.scss */
+/* line 548, ../sass/partitial/_layout.scss */
 .content .volunteer .join-us .join-table .submit {
-  width: 193%;
+  width: 100%;
   background-color: #ededee;
   text-align: center;
   padding: .8rem 0;
   font-size: 1rem;
 }
-/* line 555, ../sass/partitial/_layout.scss */
+/* line 554, ../sass/partitial/_layout.scss */
 .content .volunteer .join-us .join-table .submit:hover {
   cursor: pointer;
   background-color: #d6d6da;
 }
 
-/* line 565, ../sass/partitial/_layout.scss */
+/* line 564, ../sass/partitial/_layout.scss */
 footer {
   width: 100%;
   position: relative;
@@ -701,21 +700,21 @@ footer {
   padding: 5rem 0;
   color: #ffffff;
 }
-/* line 573, ../sass/partitial/_layout.scss */
+/* line 572, ../sass/partitial/_layout.scss */
 footer .contact {
   margin-bottom: 1rem;
 }
-/* line 576, ../sass/partitial/_layout.scss */
+/* line 575, ../sass/partitial/_layout.scss */
 footer .small {
   font-size: .6rem;
 }
-/* line 579, ../sass/partitial/_layout.scss */
+/* line 578, ../sass/partitial/_layout.scss */
 footer .email {
   display: inline-block;
   margin-top: 2rem;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
-/* line 583, ../sass/partitial/_layout.scss */
+/* line 582, ../sass/partitial/_layout.scss */
 footer .email input {
   box-sizing: border-box;
   width: 350px;
@@ -725,7 +724,7 @@ footer .email input {
   font-size: 1rem;
   color: #787b83;
 }
-/* line 592, ../sass/partitial/_layout.scss */
+/* line 591, ../sass/partitial/_layout.scss */
 footer .email span {
   display: inline-block;
   width: 50px;
@@ -734,16 +733,16 @@ footer .email span {
   font-size: .8rem;
   padding: 12px 8px 12px 8px;
 }
-/* line 599, ../sass/partitial/_layout.scss */
+/* line 598, ../sass/partitial/_layout.scss */
 footer .email span:hover {
   cursor: pointer;
 }
-/* line 604, ../sass/partitial/_layout.scss */
+/* line 603, ../sass/partitial/_layout.scss */
 footer ul {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-/* line 607, ../sass/partitial/_layout.scss */
+/* line 606, ../sass/partitial/_layout.scss */
 footer ul li {
   display: inline-block;
   width: 30px;
@@ -751,27 +750,27 @@ footer ul li {
   margin: 0 .5rem;
   background: url("../img/contact_icon.png") no-repeat;
 }
-/* line 613, ../sass/partitial/_layout.scss */
+/* line 612, ../sass/partitial/_layout.scss */
 footer ul li.qq {
   background-position: 0px 0px;
 }
-/* line 616, ../sass/partitial/_layout.scss */
+/* line 615, ../sass/partitial/_layout.scss */
 footer ul li.weibo {
   background-position: -30px 0px;
 }
-/* line 619, ../sass/partitial/_layout.scss */
+/* line 618, ../sass/partitial/_layout.scss */
 footer ul li.skype {
   background-position: -60px 0px;
 }
-/* line 622, ../sass/partitial/_layout.scss */
+/* line 621, ../sass/partitial/_layout.scss */
 footer ul li.internet {
   background-position: -90px 0px;
 }
-/* line 625, ../sass/partitial/_layout.scss */
+/* line 624, ../sass/partitial/_layout.scss */
 footer ul li:hover {
   cursor: pointer;
 }
-/* line 630, ../sass/partitial/_layout.scss */
+/* line 629, ../sass/partitial/_layout.scss */
 footer .footer {
   position: absolute;
   bottom: 0;
@@ -781,11 +780,11 @@ footer .footer {
   font-size: .8rem;
   background-color: #2f3038;
 }
-/* line 638, ../sass/partitial/_layout.scss */
+/* line 637, ../sass/partitial/_layout.scss */
 footer .footer .left {
   float: left;
 }
-/* line 641, ../sass/partitial/_layout.scss */
+/* line 640, ../sass/partitial/_layout.scss */
 footer .footer .right {
   float: right;
   text-decoration: none;

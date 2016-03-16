@@ -523,22 +523,21 @@ header {
         flex: 2;
         text-align: left;
         color: $color11;
-        & table {
+        & form {
+          position: relative;
           width: 80%;
         }
         & input {
-          box-sizing: border-box;
-          width: 100%;
-          height: 100%;
+          width: 42.5%;
           padding: .8rem 1.5rem;
           margin-bottom: .5rem;
           background-color: $color14;
           border: none;
           outline: none;
         }
-        & .one-item textarea {
+        & textarea {
           box-sizing: border-box;
-          width: 193%;
+          width: 100%;
           padding: .8rem 1.5rem 5rem 1.5rem;
           margin-bottom: .5rem;
           background-color: $color14;
@@ -547,7 +546,7 @@ header {
           outline: none;
         }
         & .submit {
-          width: 193%;
+          width: 100%;
           background-color: $color14;
           text-align: center;
           padding: .8rem 0;
