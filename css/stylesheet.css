@@ -253,6 +253,7 @@ a {
     width: 10rem;
     height: 2rem;
     margin-left: 1rem;
+    margin-bottom: 1rem;
     text-align: center;
     border: .1rem solid rgba(78, 214, 208, 1);
     color: rgba(78, 214, 208, 1);
