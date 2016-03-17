@@ -527,8 +527,10 @@ header {
           position: relative;
         }
         & input {
+          box-sizing: border-box;
           width: 330px;
           padding: 12px 24px;
+          margin-right: 24px;
           margin-bottom: .5rem;
           background-color: $color14;
           border: none;
@@ -536,7 +538,7 @@ header {
         }
         & textarea {
           box-sizing: border-box;
-          width: 756px;
+          width: 686px;
           padding: .8rem 1.5rem 5rem 1.5rem;
           margin-bottom: .5rem;
           background-color: $color14;
@@ -545,7 +547,7 @@ header {
           outline: none;
         }
         & .submit {
-          width: 756px;
+          width: 686px;
           background-color: $color14;
           text-align: center;
           padding: .8rem 0;
