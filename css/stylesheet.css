@@ -253,7 +253,7 @@ a {
     width: 10rem;
     height: 2rem;
     margin-left: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     text-align: center;
     border: .1rem solid rgba(78, 214, 208, 1);
     color: rgba(78, 214, 208, 1);
@@ -275,9 +275,6 @@ a {
     border-left: 3px solid rgba(78, 214, 208, 1);
     border-right: 3px solid rgba(78, 214, 208, 1);
     text-shadow: 2px 2px 0px rgba(78, 214, 208, 1);
-}
-.main-content {
-    text-align: center;
 }
 a.website {
     color: white;

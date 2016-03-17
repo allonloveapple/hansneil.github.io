@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding: 10px;
+}
+.wrapper {
+    display: block;
+    padding: 0;
+    margin: 0 -10px;
+}
+.wrapper:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.flow-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -10px;
+}
+.flow-wrapper:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+[class ^= col-] {
+    float: left;
+    padding: 10px;
+}
+[class ^= flex-] {
+    padding: 10px;
+}
+.content {
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: #eee;
+}
+@media (max-width: 768px) {
+    [class ^= col] span:first-of-type {
+        display: none;
+    }
+    [class ^= col] span:last-of-type {
+        display: inline-block;
+    }
+    .col-sm-2 {
+        width: 16.667%;
+    }
+    .col-sm-3 {
+        width: 25%;
+    }
+    .col-sm-6 {
+        width: 50%;
+    }
+    .col-sm-8 {
+        width: 66.667%
+    }
+    .col-sm-12 {
+        width: 100%
+    }
+
+    [class ^= flex] span:first-of-type {
+        display: none;
+    }
+    [class ^= flex] span:last-of-type {
+        display: inline-block;
+    }
+    .flex-sm-2 {
+        flex: 0 0 16.667%;
+    }
+    .flex-sm-3 {
+        flex: 0 0 25%;
+    }
+    .flex-sm-6 {
+        flex: 0 0 50%;
+    }
+    .flex-sm-8 {
+        flex: 0 0 66.667%
+    }
+    .flex-sm-12 {
+        flex: 0 0 100%
+    }
+}
+@media (min-width: 767px) {
+    [class ^= col] span:first-of-type {
+        display: inline-block;
+    }
+    [class ^= col] span:last-of-type {
+        display: none;
+    }
+    .col-md-1 {
+        width: 8.333%;
+    }
+    .col-md-2 {
+        width: 16.667%;
+    }
+    .col-md-3 {
+        width: 25%;
+    }
+    .col-md-4 {
+        width: 33.3%;
+    }
+    .col-md-6 {
+        width: 50%;
+    }
+
+    [class ^= flex] span:first-of-type {
+        display: inline-block;
+    }
+    [class ^= flex] span:last-of-type {
+        display: none;
+    }
+    .flex-md-1 {
+        flex: 0 0 8.333%;
+    }
+    .flex-md-2 {
+        flex: 0 0 16.667%;
+    }
+    .flex-md-3 {
+        flex: 0 0 25%;
+    }
+    .flex-md-4 {
+        flex: 0 0 33.3%;
+    }
+    .flex-md-6 {
+        flex: 0 0 50%;
+    }
+}

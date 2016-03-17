@@ -4,38 +4,47 @@
 header {
   width: 100%;
   height: 3.75rem;
-  @include transition(all 0.2s ease);
   & .left-header {
     float: left;
-    margin-top: 1rem;
+    line-height: 57px;
     margin-left: 3.75rem;
     & .title {
-      width: 5rem;
-      height: 2rem;
-      background: url("../img/head_book.png") no-repeat;
+      background: url("../img/head_book.png") no-repeat 0px 10px;
       padding-left: 2.5rem;
-      padding-top: .5rem;
+    }
+    &:hover {
+      cursor: pointer;
+      color: $color2;
+      & .bar {
+        width: 88px;
+      }
+    }
+    & .bar {
+      @include transition(all .5s ease);
+      margin: 0 auto;
+      width: 0px;
+      height: 3px;
+      background-color: $color2;
     }
   }
   & nav {
     float: right;
-    margin-top: 1.2rem;
     margin-left: 3.75rem;
     margin-right: 2rem;
+    line-height: 56px;
     & li {
       display: inline-block;
       & a {
         display: inline-block;
         width: 4rem;
         margin-right: 1rem;
-        padding-bottom: 1.1rem;
         font-size: .8rem;
         text-align: center;
         text-decoration: none;
         color: $color1;
       }
       &:last-child a {
-        background: url("../img/user.png") no-repeat 0px 0px;
+        background: url("../img/user.png") no-repeat 0px 20px;
         color: $color2;
         &:hover {
           border-bottom: 0px solid $color2;
@@ -70,7 +79,6 @@ header {
     height: 690px;
     background: url("../img/main_page.jpg") no-repeat;
     background-size: cover;
-    @include transition(all 0.2s ease);
     & .new-life {
       position: absolute;
       top: 25%;
@@ -88,14 +96,13 @@ header {
       }
       & .enter-button {
         width: 50%;
-        height: 10%;
         margin-top: 2rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
         font-size: 1.5rem;
         background-color: $color2;
         text-align: center;
         opacity: .8;
+        line-height: 60px;
+        @include transition(border-radius 0.2s ease);
         &:hover {
           border-radius: 10px;
           cursor: pointer;
@@ -215,7 +222,7 @@ header {
             font-size: .8rem;
             color: $color1;
             text-align: left;
-            padding-top: .7rem;
+            line-height: 35px;
             padding-left: .5rem;
           }
           & .envelope {
@@ -241,7 +248,7 @@ header {
       }
       & .child-item {
         position: absolute;
-        margin-top: 42px;
+        margin-top: 38px;
         margin-left: -2px;
         & li {
           width: 240px;
@@ -282,6 +289,7 @@ header {
     @include transition(all 0.2s ease);
     & .place {
       margin-top: 8rem;
+      padding: 0 2rem;
       flex: 1;
       text-align: center;
       & .big {
@@ -294,6 +302,8 @@ header {
           margin: .2rem auto;
           font-size: 1.2rem;
           color: $color11;
+          word-spacing: 35px;
+          text-align: left;
         }
       }
       & .small {
@@ -462,7 +472,8 @@ header {
         background-color: $color1;
       }
       & .red-btn{
-        padding: .8rem .8rem;
+        width: 140px;
+        line-height: 30px;
       }
     }
     & .photo {
@@ -483,7 +494,8 @@ header {
     & .white {
       color: $color4;
       border: 1px solid $color4;
-      padding: .8rem .8rem;
+      width: 140px;
+      line-height: 30px;
       &:hover {
         box-shadow: 3px 3px 0 $color4;
       }
@@ -600,11 +612,11 @@ footer {
     }
     & span {
       display: inline-block;
-      width: 50px;
+      width: 80px;
       text-align: center;
       background-color: $color16;
       font-size: .8rem;
-      padding: 12px 8px 12px 8px;
+      line-height: 41px;
       &:hover {
         cursor: pointer;
       }
