@@ -681,19 +681,27 @@ header nav .selected, header nav a:hover {
 /* line 547, ../sass/partitial/_layout.scss */
 .main-content .volunteer .join-us .join-table form {
   position: relative;
+  width: 686px;
 }
-/* line 550, ../sass/partitial/_layout.scss */
+/* line 551, ../sass/partitial/_layout.scss */
 .main-content .volunteer .join-us .join-table input {
   box-sizing: border-box;
   width: 330px;
   padding: 12px 24px;
-  margin-right: 24px;
   margin-bottom: .5rem;
   background-color: #ededee;
   border: none;
   outline: none;
 }
-/* line 560, ../sass/partitial/_layout.scss */
+/* line 559, ../sass/partitial/_layout.scss */
+.main-content .volunteer .join-us .join-table input:nth-of-type(2n+1) {
+  margin-right: 11px;
+}
+/* line 562, ../sass/partitial/_layout.scss */
+.main-content .volunteer .join-us .join-table input:nth-of-type(2n) {
+  margin-left: 11px;
+}
+/* line 566, ../sass/partitial/_layout.scss */
 .main-content .volunteer .join-us .join-table textarea {
   box-sizing: border-box;
   width: 686px;
@@ -704,7 +712,7 @@ header nav .selected, header nav a:hover {
   resize: none;
   outline: none;
 }
-/* line 570, ../sass/partitial/_layout.scss */
+/* line 576, ../sass/partitial/_layout.scss */
 .main-content .volunteer .join-us .join-table .submit {
   width: 686px;
   background-color: #ededee;
@@ -712,13 +720,13 @@ header nav .selected, header nav a:hover {
   padding: .8rem 0;
   font-size: 1rem;
 }
-/* line 576, ../sass/partitial/_layout.scss */
+/* line 582, ../sass/partitial/_layout.scss */
 .main-content .volunteer .join-us .join-table .submit:hover {
   cursor: pointer;
   background-color: #d6d6da;
 }
 
-/* line 586, ../sass/partitial/_layout.scss */
+/* line 592, ../sass/partitial/_layout.scss */
 footer {
   width: 100%;
   position: relative;
@@ -728,21 +736,21 @@ footer {
   padding: 5rem 0;
   color: #ffffff;
 }
-/* line 594, ../sass/partitial/_layout.scss */
+/* line 600, ../sass/partitial/_layout.scss */
 footer .contact {
   margin-bottom: 1rem;
 }
-/* line 597, ../sass/partitial/_layout.scss */
+/* line 603, ../sass/partitial/_layout.scss */
 footer .small {
   font-size: .6rem;
 }
-/* line 600, ../sass/partitial/_layout.scss */
+/* line 606, ../sass/partitial/_layout.scss */
 footer .email {
   display: inline-block;
   margin-top: 2rem;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
-/* line 604, ../sass/partitial/_layout.scss */
+/* line 610, ../sass/partitial/_layout.scss */
 footer .email input {
   box-sizing: border-box;
   width: 350px;
@@ -752,7 +760,7 @@ footer .email input {
   font-size: 1rem;
   color: #787b83;
 }
-/* line 613, ../sass/partitial/_layout.scss */
+/* line 619, ../sass/partitial/_layout.scss */
 footer .email span {
   display: inline-block;
   width: 80px;
@@ -761,16 +769,16 @@ footer .email span {
   font-size: .8rem;
   line-height: 41px;
 }
-/* line 620, ../sass/partitial/_layout.scss */
+/* line 626, ../sass/partitial/_layout.scss */
 footer .email span:hover {
   cursor: pointer;
 }
-/* line 625, ../sass/partitial/_layout.scss */
+/* line 631, ../sass/partitial/_layout.scss */
 footer ul {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-/* line 628, ../sass/partitial/_layout.scss */
+/* line 634, ../sass/partitial/_layout.scss */
 footer ul li {
   display: inline-block;
   width: 30px;
@@ -778,27 +786,27 @@ footer ul li {
   margin: 0 .5rem;
   background: url("../img/contact_icon.png") no-repeat;
 }
-/* line 634, ../sass/partitial/_layout.scss */
+/* line 640, ../sass/partitial/_layout.scss */
 footer ul li.qq {
   background-position: 0px 0px;
 }
-/* line 637, ../sass/partitial/_layout.scss */
+/* line 643, ../sass/partitial/_layout.scss */
 footer ul li.weibo {
   background-position: -30px 0px;
 }
-/* line 640, ../sass/partitial/_layout.scss */
+/* line 646, ../sass/partitial/_layout.scss */
 footer ul li.skype {
   background-position: -60px 0px;
 }
-/* line 643, ../sass/partitial/_layout.scss */
+/* line 649, ../sass/partitial/_layout.scss */
 footer ul li.internet {
   background-position: -90px 0px;
 }
-/* line 646, ../sass/partitial/_layout.scss */
+/* line 652, ../sass/partitial/_layout.scss */
 footer ul li:hover {
   cursor: pointer;
 }
-/* line 651, ../sass/partitial/_layout.scss */
+/* line 657, ../sass/partitial/_layout.scss */
 footer .footer {
   position: absolute;
   bottom: 0;
@@ -808,11 +816,11 @@ footer .footer {
   font-size: .8rem;
   background-color: #2f3038;
 }
-/* line 659, ../sass/partitial/_layout.scss */
+/* line 665, ../sass/partitial/_layout.scss */
 footer .footer .left {
   float: left;
 }
-/* line 662, ../sass/partitial/_layout.scss */
+/* line 668, ../sass/partitial/_layout.scss */
 footer .footer .right {
   float: right;
   text-decoration: none;
@@ -820,7 +828,7 @@ footer .footer .right {
 }
 
 /* line 5, ../sass/style.scss */
-body, h1, h2, h3, header, div, p, ul, table {
+body, h1, h2, h3, header, div, p, ul, li, table {
   padding: 0;
   margin: 0;
 }

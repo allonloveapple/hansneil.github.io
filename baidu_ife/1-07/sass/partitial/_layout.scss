@@ -546,16 +546,22 @@ header {
         color: $color11;
         & form {
           position: relative;
+          width: 686px;
         }
         & input {
           box-sizing: border-box;
           width: 330px;
           padding: 12px 24px;
-          margin-right: 24px;
           margin-bottom: .5rem;
           background-color: $color14;
           border: none;
           outline: none;
+          &:nth-of-type(2n+1) {
+            margin-right: 11px;
+          }
+          &:nth-of-type(2n) {
+            margin-left: 11px;
+          }
         }
         & textarea {
           box-sizing: border-box;
