@@ -356,9 +356,9 @@ header nav .selected, header nav a:hover {
 }
 /* line 290, ../sass/partitial/_layout.scss */
 .main-content .activity-place .place {
-  margin-top: 8rem;
+  margin: 8rem auto;
   padding: 0 32px;
-  flex: 1;
+  flex: 0 0  267px;
   text-align: center;
 }
 /* line 295, ../sass/partitial/_layout.scss */
@@ -374,7 +374,7 @@ header nav .selected, header nav a:hover {
   margin: .2rem auto;
   font-size: 1.2rem;
   color: #000000;
-  word-spacing: 35px;
+  word-spacing: 30px;
   text-align: left;
 }
 /* line 309, ../sass/partitial/_layout.scss */
