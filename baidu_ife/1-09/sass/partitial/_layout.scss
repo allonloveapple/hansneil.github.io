@@ -147,6 +147,8 @@ aside {
   }
 }
 .content {
+  flex: 0 0 1020px;
+  width: 1020px;
   background-color: $color9;
   & .content-top {
     padding: 0 20px;
@@ -164,6 +166,13 @@ aside {
         }
         &:last-child:after {
           content: '';
+        }
+        &:hover {
+          color: $color7;
+          cursor: pointer;
+          &:after {
+            color: $color4;
+          }
         }
       }
     }
@@ -473,8 +482,7 @@ aside {
               border: 1px solid $color3;
               z-index: 0;
               padding: 40px 40px;
-              border-bottom-right-radius: 10px;
-              border-bottom-left-radius: 10px;
+              border-radius: 0 10px 10px 10px;
               & table {
                 width: 100%;
                 text-align: center;
@@ -487,15 +495,19 @@ aside {
               }
               &.item-2 {
                 margin-left: -74px;
+                border-radius: 10px 10px 10px 10px;
               }
               &.item-3 {
                 margin-left: -147px;
+                border-radius: 10px 10px 10px 10px;
               }
               &.item-4 {
                 margin-left: -221px;
+                border-radius: 10px 10px 10px 10px;
               }
               &.item-5 {
                 margin-left: -294px;
+                border-radius: 10px 10px 10px 10px;
               }
             }
             & input {
