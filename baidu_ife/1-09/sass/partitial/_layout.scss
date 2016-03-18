@@ -1,0 +1,732 @@
+@import "compass";
+@import "susyone";
+@import "variables";
+header {
+  width: 100%;
+  height: 56px;
+  background-color: $color1;
+  z-index: 999;
+}
+.logo {
+  float: left;
+  width: 36px;
+  height: 36px;
+  margin-left: 50px;
+  margin-top: 10px;
+  background: url("../img/logo.png") no-repeat;
+}
+.search-bar {
+  float: right;
+  margin-top: 14px;
+  margin-right: 100px;
+  & input {
+    width: 312px;
+    height: 28px;
+    padding-left: 40px;
+    border: none;
+    background-color: $color2;
+    border-radius: 20px;
+    outline: none;
+    font-size: .75rem;
+    color: $color3;
+  }
+  & .search-icon {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    font-size: .75rem;
+    margin-right: -40px;
+    color: $color3;
+  }
+  & .login {
+    display: inline-block;
+    margin-left: 20px;
+    color: $color2;
+    font-size: .75rem;
+    text-decoration: none;
+    & i{
+      font-size: 1rem;
+      margin-right: 10px;
+      vertical-align: bottom;
+    }
+  }
+}
+.content-wrapper {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  width: 1280px;
+}
+aside {
+  left: 0;
+  flex: 0 0 260px;
+  width: 260px;
+  background-color: $color4;
+  z-index: 99;
+  & section {
+    width: 100%;
+  }
+  & .user-info {
+    height: 150px;
+    padding: 18px 45px;
+    & .photo-wrapper {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border: 1px solid $color5;
+      border-radius: 50%;
+    }
+    & .name {
+      display: inline-block;
+      height: 60px;
+      margin-left: 10px;
+      vertical-align: middle;
+      color: $color2;
+    }
+    & .photo {
+      width: 80%;
+      height: 80%;
+      margin: 6px;
+      background-color: $color5;
+      border-radius: 50%;
+    }
+    & ul {
+      display: inline-block;
+      & li {
+        box-sizing: content-box;
+        display: inline-block;
+        width: 40px;
+        padding: 0 10px;
+        text-align: center;
+        line-height: 100%;
+        &:first-child {
+          border-right: 1px solid $color6;
+        }
+      }
+    }
+    & a {
+      color: $color6;
+      text-decoration: none;
+      &:hover {
+        color: $color7;
+      }
+    }
+  }
+  & .items {
+    padding-top: 10px;
+    & li {
+      list-style: none;
+      line-height: 40px;
+      & i {
+        margin-right: 10px;
+      }
+    }
+    & .item-list {
+      width: 100%;
+      font-size: .75rem;
+      color: $color6;
+      & .main {
+        padding: 0 45px;
+        &.selected, &:hover {
+          background-color: $color8;
+          cursor: pointer;
+          color: $color2;
+        }
+      }
+    }
+    & .drop-down {
+      width: 100%;
+      color: $color6;
+      & li {
+        padding: 0 25px;
+        &:hover, &.selected {
+          color: $color2;
+        }
+      }
+    }
+  }
+}
+.content {
+  background-color: $color9;
+  & .content-top {
+    padding: 0 20px;
+    background-color: $color2;
+    box-shadow: 0px 0px 5px $color3;
+    & ul {
+      display: inline-block;
+      & li {
+        display: inline-block;
+        line-height: 50px;
+        font-size: .75rem;
+        &:after {
+          content: '/';
+          padding: 0 10px;
+        }
+        &:last-child:after {
+          content: '';
+        }
+      }
+    }
+  }
+  & .main-content {
+    padding: 20px 60px;
+    & > [class *= 'flex'] {
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px lighten($color3, 0.2);
+    }
+    & .btn-select {
+      position: relative;
+      display: inline-block;
+      width: 80px;
+      padding-left: 10px;
+      line-height: 25px;
+      border-radius: 5px;
+      border: 1px solid $color4;
+      &:hover {
+        cursor: pointer;
+        & .hidden-btn:checked + .dropdown {
+          display: block;
+        }
+      }
+      & .hidden-btn {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      & .dropdown {
+        display: none;
+        position: absolute;
+        width: 100%;
+        top: 26px;
+        left: 0;
+        list-style: none;
+        box-shadow: 0px 0px 5px $color3;
+        background-color: $color2;
+        border-radius: 5px;
+        z-index: 999;
+        & li {
+          padding-left: 10px;
+        }
+        & li:hover {
+          background-color: $color5;
+        }
+      }
+      &.buyer {
+        width: 150px;
+      }
+      & i {
+        float: right;
+        line-height: 25px;
+        margin-right: 2px;
+      }
+    }
+    & .search-box {
+      height: 100px;
+      padding: 20px 20px;
+      background-color: $color2;
+      font-size: .75rem;
+      & label {
+        padding-right: 10px;
+        padding-left: 20px;
+      }
+      & .seller, & .counters {
+        padding-top: 10px;
+      }
+      & .column {
+        float: left;
+        margin-right: 15px;
+      }
+      & .query {
+        width: 160px;
+      }
+      & .buyer-seller {
+        width: 250px;
+        position: relative;
+        & .change {
+          position: absolute;
+          height: 100%;
+          top: 0;
+          right: 0px;
+          left: 210px;
+          padding-top: 22px;
+          padding-left: 15px;
+          color: $color2;
+          background: url("../img/change.png") no-repeat 0 center;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      & .details {
+        position: relative;
+        width: 400px;
+        & .input-date {
+          width: 120px;
+        }
+        & .counter {
+          width: 100px;
+        }
+        & .deals {
+          width: 100px;
+        }
+        & .search-btn {
+          position: absolute;
+          top: 10px;
+          right: 0;
+          display: inline-block;
+          margin-left: 10px;
+          text-align: center;
+          width: 50px;
+          line-height: 30px;
+          text-decoration: none;
+          color: $color2;
+          background-color: $color1;
+          border-radius: 5px;
+        }
+      }
+    }
+    & [class *= 'flex-sf'] {
+      background-color: $color2;
+      margin-right: 10px;
+      box-shadow: 0px 0px 5px lighten($color3, 0.2);
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    & .history {
+      display: flex;
+      width: 100%;
+      height: 80px;
+      margin-top: 20px;
+      overflow: hidden;
+      box-shadow: none;
+      & .flex-sf-1 {
+        flex: 1;
+      }
+      & .flex-sf-2 {
+        flex: 4;
+      }
+      & .time-line {
+        @include transition(all 0s ease);
+        text-align: center;
+        border-top: 5px solid $color2;
+        &.selected, &:hover {
+          border-top: 5px solid $color1;
+        }
+        & .time {
+          line-height: 40px;
+          font-size: .75rem;
+        }
+        & .cost {
+          color: $color3;
+          & span {
+            color: $color10;
+            font-size: 1.25rem;
+          }
+        }
+      }
+      & .nav {
+        line-height: 80px;
+        text-align: center;
+        color: $color3;
+        &.prev {
+          @include transform(rotate(180deg));
+        }
+      }
+      & .history-search {
+        text-align: center;
+        & i {
+          line-height: 80px;
+          font-size: 1.5rem;
+          color: $color1;
+        }
+        & span {
+          font-size: .75rem;
+        }
+      }
+    }
+    & .statics {
+      width: 100%;
+      margin-top: 20px;
+      font-size: .75rem;
+      & .statics-content {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        padding-top: 10px;
+        overflow: hidden;
+      }
+      & [class *= 'flex-sf'] {
+        margin-right: 25px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      & .flex-sf-3 {
+        flex: 1;
+      }
+      & .green {
+        border-left: 5px solid $color11;
+        & .deal-rect {
+          background-color: $color11;
+        }
+      }
+      & .blue {
+        border-left: 5px solid $color12;
+        & .deal-rect {
+          background-color: $color12;
+        }
+      }
+      & .red {
+        border-left: 5px solid $color13;
+        & .deal-rect {
+          background-color: $color13;
+        }
+      }
+      & .yellow {
+        border-left: 5px solid $color14;
+        & .deal-rect {
+          background-color: $color14;
+        }
+      }
+      & .deal-amount {
+        float: left;
+        & p:first-child {
+          line-height: 30px;
+        }
+        & p:last-child {
+          color: $color3;
+        }
+        padding: 10px 15px;
+      }
+      & .deal-rect {
+        float: right;
+        margin-top: 12px;
+        margin-right: 10px;
+        width: 60px;
+        height: 45px;
+      }
+    }
+    & .flex-sf-6 {
+      flex: 6;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    & .flex-sf-4 {
+      flex: 4;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    & .projects {
+      display: flex;
+      margin-top: 30px;
+      width: 100%;
+      height: 360px;
+      font-size: .75rem;
+      &.part {
+        height: 380px;
+      }
+      & .table-title {
+        line-height: 40px;
+        background-color: $color15;
+        padding-left: 20px;
+      }
+      & .project-item {
+        position: relative;
+        padding: 10px 20px;
+        & ul {
+          & li {
+            display: inline-block;
+            position: relative;
+            width: 70px;
+            line-height: 30px;
+            text-align: center;
+            z-index: 99;
+            & span {
+              display: block;
+              width: 100%;
+              height: 100%;
+              background-color: $color16;
+              border-radius: 5px;
+            }
+            & .shade {
+              display: none;
+              position: absolute;
+              width: 69px;
+              height: 1px;
+              background-color: $color2;
+              z-index: 99;
+            }
+            & .tab {
+              display: none;
+              position: absolute;
+              width: 480px;
+              height: 250px;
+              padding: 20px;
+              border: 1px solid $color3;
+              z-index: 0;
+              padding: 40px 40px;
+              border-bottom-right-radius: 10px;
+              border-bottom-left-radius: 10px;
+              & table {
+                width: 100%;
+                text-align: center;
+                & td {
+                  border: 1px solid $color3;
+                  &:hover {
+                    background-color: $color16;
+                  }
+                }
+              }
+              &.item-2 {
+                margin-left: -74px;
+              }
+              &.item-3 {
+                margin-left: -147px;
+              }
+              &.item-4 {
+                margin-left: -221px;
+              }
+              &.item-5 {
+                margin-left: -294px;
+              }
+            }
+            & input {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              left: 0;
+              opacity: 0;
+              &:hover {
+                cursor: pointer;
+              }
+              &:checked + span {
+                background-color: $color2;
+                border: 1px solid $color3;
+                border-bottom: 1px solid $color2;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                & + .tab {
+                  display: block;
+                  & + .shade {
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      & .detail-table {
+        padding: 20px 40px;
+        text-align: left;
+        & table {
+          width: 100%;
+        }
+        & span {
+          display: block;
+          color: $color3;
+        }
+        & th {
+          font-weight: 100;
+          line-height: 18px;
+          padding-left: 5px;
+          padding-bottom: 5px;
+          border-bottom: 1px solid $color3;
+        }
+        & td  {
+          padding-left: 5px;
+          padding-bottom: 5px;
+          border-bottom: 1px solid $color3;
+        }
+        & .price {
+          width: 40%;
+          border-right: 1px solid $color3;
+        }
+        & .responsor {
+          width: 60%;
+        }
+        & .area {
+          height: 150px;
+          vertical-align: top;
+        }
+        & .submit {
+          border: none;
+          padding-top: 10px;
+        }
+        & .secret {
+          float: left;
+          padding-top: 10px;
+        }
+        & .table-btn {
+          float: right;
+          width: 60px;
+          font-size: 0.8rem;
+          line-height: 2;
+          color: $color2;
+          border-radius: 5px;
+          border: none;
+          background-color: $color12;
+          outline: none;
+          &:hover {
+            cursor: pointer;
+            background-color: $color17;
+          }
+        }
+      }
+      & .calendar {
+        padding: 5px 10px;
+        display: inline-block;
+        & .calendar-item {
+          display: inline-block;
+          & a {
+            border-color: $color6;
+          }
+          &.return {
+            text-align: center;
+            & a {
+              padding-left: 0;
+            }
+          }
+        }
+      }
+      & .calendar-table {
+        padding: 5px 10px;
+        width: 100%;
+        text-align: center;
+        & .week td {
+          border-top: 1px solid $color3;
+          border-bottom: 1px solid $color3;
+          padding: 5px 0;
+        }
+        & .day td {
+          width: 45px;
+          height: 45px;
+          padding: 5px;
+        }
+        & span {
+          display: block;
+          width: 100%;
+          font-size: .75rem;
+          padding-top: 5px;
+          height: 38px;
+          line-height: 100%;
+          border-radius: 50%;
+          border: 1px solid $color2;
+          @include transition(all .5s ease);
+          &:hover {
+            color: $color2;
+            border: 1px solid $color8;
+            background-color: $color8;
+            & small {
+              color: $color2;
+            }
+          }
+        }
+        & .mark {
+          & span {
+            color: $color2;
+            border: 1px solid $color8;
+            background-color: $color8;
+          }
+        }
+        & .weekend {
+          color: $color13;
+          & small {
+            color: $color4;
+          }
+        }
+        & .festival {
+          & small {
+            color: $color13;
+          }
+        }
+      }
+      & .top-cars {
+        text-align: center;
+        padding: 15px 50px;
+        width: 100%;
+        & .rank {
+          width: 20%;
+        }
+        & .name {
+          width: 20%;
+        }
+        & .hot {
+          width: 60%;
+        }
+        & th, & td {
+          font-weight: 400;
+          border: 1px solid $color3;
+          padding: 5px 0;
+        }
+        & tr:hover  {
+          & td {
+            background-color: $color18;
+          }
+        }
+        & .hot-bar {
+          display: inline-block;
+          width: 150px;
+          height: 4px;
+          margin-left: 10px;
+          margin-bottom: 3px;
+          background-color: $color19;
+          border-radius: 2px;
+          & .hot-inner {
+            display: block;
+            height: 100%;
+            border-radius: 2px 0 0 2px;
+            &.inner-80 {
+              width: 80%;
+              background-color: $color20;
+            }
+            &.inner-75 {
+              width: 75%;
+              background-color: $color21;
+            }
+            &.inner-70 {
+              width: 70%;
+              background-color: $color22;
+            }
+            &.inner-65 {
+              width: 65%;
+              background-color: $color23;
+            }
+            &.inner-60 {
+              width: 60%;
+              background-color: $color23;
+            }
+            &.inner-55 {
+              width: 55%;
+              background-color: $color23;
+            }
+            &.inner-50 {
+              width: 50%;
+              background-color: $color23;
+            }
+            &.inner-45 {
+              width: 45%;
+              background-color: $color23;
+            }
+            &.inner-40 {
+              width: 40%;
+              background-color: $color23;
+            }
+            &.inner-35 {
+              width: 35%;
+              background-color: $color23;
+            }
+          }
+        }
+      }
+    }/*projects*/
+  } /*main content*/
+}

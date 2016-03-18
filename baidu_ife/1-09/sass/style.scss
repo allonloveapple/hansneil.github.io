@@ -1,0 +1,113 @@
+@import "compass";
+@import "susyone";
+@import "./partitial/variables";
+@import "./partitial/layout";
+html, body, h1, h2, h3, p, ul, li, nav, footer, div {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: yaHei;
+  src: url("../1-06/css/font/msyh.ttf");
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  min-width: 1366px;
+  font-size: 16px;
+  font-family: "Microsoft YaHei", yaHei;
+  /*overflow: hidden;*/
+}
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url('./fonts/glyphicons-halflings-regular.eot');
+  src: url('./fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('./fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('./fonts/glyphicons-halflings-regular.woff') format('woff'), url('./fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('./fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-search:before {
+  content: "\e003";
+}
+.glyphicon-user:before {
+  content: "\e008";
+}
+.glyphicon-folder-open:before {
+  content: "\e118";
+}
+.glyphicon-list-alt:before {
+  content: "\e032";
+}
+.glyphicon-chevron-right:before {
+  content: "\e080";
+}
+.glyphicon-chevron-down:before {
+  content: "\e114";
+}
+.glyphicon-align-justify:before {
+  content: "\e055";
+}
+.glyphicon-star:before {
+  content: "\e006";
+}
+.glyphicon-send:before {
+  content: "\e171";
+}
+.glyphicon-picture:before {
+  content: "\e060";
+}
+.glyphicon-record:before {
+  content: "\e165";
+}
+.glyphicon-scale:before {
+  content: "\e230";
+}
+.glyphicon-calendar:before {
+  content: "\e109";
+}
+
+.flow-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 10px 40px;
+  height: 100%;
+}
+.flow-wrapper:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.flex-md-1 {
+  flex: 0 0 8.333%;
+}
+.flex-md-2 {
+  flex: 0 0 16.667%;
+}
+.flex-md-3 {
+  flex: 0 0 25%;
+}
+.flex-md-4 {
+  flex: 0 0 33.3%;
+}
+.flex-md-6 {
+  flex: 0 0 50%;
+}
+.flex-md-12 {
+  flex: 0 0 100%;
+}
