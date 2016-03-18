@@ -174,7 +174,7 @@ aside .items .drop-down li:hover, aside .items .drop-down li.selected {
 
 /* line 145, ../sass/partitial/_layout.scss */
 .content {
-  flex: 1 0 1020px;
+  flex: 2 0 1020px;
   /*width: 1020px;*/
   background-color: #eeeded;
   /*main content*/
