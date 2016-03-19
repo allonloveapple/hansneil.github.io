@@ -44,10 +44,12 @@ header {
     color: $color2;
     font-size: .75rem;
     text-decoration: none;
+    line-height: 28px;
     & i{
       font-size: 1rem;
       margin-right: 10px;
       vertical-align: bottom;
+      line-height: 28px;
     }
   }
 }
@@ -71,21 +73,22 @@ aside {
   & section {
     width: 100%;
   }
+  & .photo-name {
+    margin-bottom: 20px;
+  }
   & .user-info {
     height: 150px;
     padding: 18px 45px;
     & .photo-wrapper {
-      display: inline-block;
+      float: left;
       width: 60px;
       height: 60px;
       border: 1px solid $color5;
       border-radius: 50%;
     }
     & .name {
-      display: inline-block;
-      height: 60px;
-      margin-left: 10px;
-      vertical-align: middle;
+      line-height: 60px;
+      margin-left: 70px;
       color: $color2;
     }
     & .photo {
