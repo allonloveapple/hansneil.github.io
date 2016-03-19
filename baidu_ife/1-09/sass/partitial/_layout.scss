@@ -251,6 +251,7 @@ aside {
       font-size: .75rem;
       & form {
         margin: 0 auto;
+        overflow: hidden;
       }
       & label {
         padding-right: 10px;
@@ -310,6 +311,12 @@ aside {
           background-color: $color1;
           border-radius: 5px;
         }
+      }
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+        height: 0;
       }
     }
     & [class *= 'flex-sf'] {
