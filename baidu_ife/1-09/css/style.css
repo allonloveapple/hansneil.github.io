@@ -859,7 +859,7 @@ aside .items .drop-down li:hover, aside .items .drop-down li.selected {
   padding: 5px 0;
 }
 /* line 699, ../sass/partitial/_layout.scss */
-.content .main-content .projects .top-cars tr:hover td {
+.content .main-content .projects .top-cars tr:hover td, .content .main-content .projects .top-cars tr.selected td {
   background-color: #f4f5f6;
 }
 /* line 703, ../sass/partitial/_layout.scss */

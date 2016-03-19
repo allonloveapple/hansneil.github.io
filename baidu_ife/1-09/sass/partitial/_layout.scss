@@ -695,7 +695,7 @@ aside {
           border: 1px solid $color3;
           padding: 5px 0;
         }
-        & tr:hover  {
+        & tr:hover, & tr.selected  {
           & td {
             background-color: $color18;
           }
