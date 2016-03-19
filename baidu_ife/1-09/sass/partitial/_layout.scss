@@ -54,10 +54,19 @@ header {
 .content-wrapper {
   position: relative;
   display: flex;
+  width: 1280px;
   margin: 0 auto;
 }
+.content-wrapper:after {
+  content: '';
+  clear: both;
+  display: block;
+  height: 0;
+}
 aside {
-  flex: 1 0 260px;
+  /*float:left;
+  width: 260px;*/
+  flex: 0 0 260px;
   background-color: $color4;
   & section {
     width: 100%;
@@ -143,7 +152,9 @@ aside {
   }
 }
 .content {
-  flex: 2 0 1020px;
+  /*float: left;
+  width: 1020px;*/
+  flex: 0 0 1020px;
   /*width: 1020px;*/
   background-color: $color9;
   & .content-top {
