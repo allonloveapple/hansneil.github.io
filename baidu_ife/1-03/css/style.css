@@ -1,0 +1,149 @@
+.container {
+    position: relative;
+    overflow: auto;
+    border: 5px solid #444;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #eee;
+}
+.container:after {
+    clear: both;
+    content: '';
+    height: 0;
+    display: block;
+}
+#team-intro {
+    float: left;
+    width: 100%;
+}
+#mainContainer {
+    margin: 0 140px 0 220px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+#team-info {
+    float: left;
+    margin-left: -100%;
+    width: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+#team-member {
+    float: right;
+    margin-left: -140px;
+    width: 120px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+img {
+    float: left;
+    padding: 20px;
+    width: 80px;
+    height: 80px;
+}
+/*
+
+ .container {
+     position: relative;
+     overflow: auto;
+     border: 5px solid #444;
+     padding: 20px;
+     border-radius: 10px;
+     background-color: #eee;
+ }
+
+#team-info {
+    float: left;
+    width: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+#team-member {
+    float: right;
+    width: 120px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+#mainContainer {
+    margin: 0 140px 0 220px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+img {
+    padding: 20px;
+    width: 80px;
+    height: 80px;
+}
+.team-name {
+    position: absolute;
+    left: 140px;
+    top: 20px;
+}
+*/
+
+/*
+.container {
+ position: relative;
+ !*overflow: auto;*!
+ border: 5px solid #444;
+ padding: 20px;
+ border-radius: 10px;
+ background-color: #eee;
+}
+!*#team-intro {
+    float: left;
+    width: 100%;
+}*!
+#mainContainer {
+    margin: 0 140px 0 220px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+#team-info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    !*margin-left: -100%;*!
+    width: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+#team-member {
+    !*float: right;
+    margin-left: -140px;*!
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+img {
+    padding: 20px;
+    width: 80px;
+    height: 80px;
+}
+.team-name {
+    position: absolute;
+    left: 140px;
+    top: 20px;
+}*/
