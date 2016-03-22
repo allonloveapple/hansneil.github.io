@@ -17,7 +17,7 @@
         for (var i = 0; i < this.data.length; i++) {
             innerHTML += "<li class='queue-item'>" + this.data[i] + "</li>"
         }
-        innerHTML += "</ul>"
+        innerHTML += "</ul>";
         queueWrapper.innerHTML = innerHTML;
     };
 
@@ -93,7 +93,7 @@
      * 初始化事件监听函数
      */
     function initListners() {
-        var buttonGroup = document.getElementsByTagName("button");
+        var buttonGroup = document.querySelectorAll("button");
         for (var i = 0; i < buttonGroup.length; i++) {
             (function(m){
                 addEventHandler(buttonGroup[m], 'click', function(){

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 21</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            width: 800px;
+            margin: 50px auto;
+            padding: 50px;
+            border: 2px solid #9da6bd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #dddddd;
+        }
+        .list {
+            height: 50px;
+            list-style: none;
+        }
+        .list li {
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+            background-color: #9da6bd;
+            border-radius: 5px;
+            margin: 10px 10px 5px 0;
+            padding: 0 10px;
+            color: white;
+        }
+        .list li:hover {
+            cursor: pointer;
+        }
+        .list li:hover:before {
+            content: "[删除]";
+            line-height: 30px;
+            font-size: .75rem;
+            padding-right: 5px;
+            color: #e20965;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 700px;
+            padding: 10px;
+            border: 2px solid #9da6bd;
+            outline: none;
+            font-size: .75rem;
+        }
+        textarea {
+            display: block;
+            resize: none;
+            width: 700px;
+            padding: 10px;
+            border: 2px solid #9da6bd;
+            font-size: .75rem;
+            outline: none;
+            min-height: 100px;
+        }
+        button {
+            margin-top: 20px;
+            width: 80px;
+            background-color: white;
+            border: 2px solid #9da6bd;
+            line-height: 30px;
+            font-size: .75rem;
+            border-radius: 10px;
+        }
+        button:hover {
+            background-color: #9da6bd;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <label>你的标签:</label>
+    <input id="tag-input" type="text" />
+    <ul class="list tag"></ul>
+    <label>你的爱好:</label>
+    <textarea id="hobby-input"></textarea>
+    <button>确认提交</button>
+    <ul class="list hobby"></ul>
+</section>
+<script src="task.js"></script>
+</body>
+</html>
