@@ -65,6 +65,17 @@ function getWidth(width, len) {
     return posObj;
 }
 
+function getTitle() {
+    switch (pageState.nowGraTime) {
+        case "day":
+            return "每日";
+        case "week":
+            return "周平均";
+        case "month":
+            return "月平均";
+    }
+}
+
 /**
  * addEventHandler方法
  * 跨浏览器实现事件绑定
@@ -89,8 +100,10 @@ function renderChart() {
     var selectedData = chartData[pageState.nowGraTime][pageState.nowSelectCity];
     var len = Object.keys(selectedData).length;
     var posObj = getWidth(width, len);
+    innerHTML += "<div class='title'>" + pageState.nowSelectCity + "市01-03月"+ getTitle() +"空气质量报告</div>"
     for (var key in selectedData) {
-        innerHTML += "<div class='aqi-bar " + pageState.nowGraTime + "' style='height:" + selectedData[key] + "px; width: " + posObj.width +"px; left:" + (posObj.left * (i++) + posObj.offsetLeft) + "px; background-color:" + colors[Math.floor(Math.random() * 11)] + "'></div>"
+        innerHTML += "<div class='aqi-bar " + pageState.nowGraTime + "' style='height:" + selectedData[key] + "px; width: " + posObj.width +"px; left:" + (posObj.left * i + posObj.offsetLeft) + "px; background-color:" + colors[Math.floor(Math.random() * 11)] + "'></div>"
+        innerHTML += "<div class='aqi-hint' style='bottom: " + (selectedData[key] + 10) + "px; left:" + (posObj.left * (i++) + posObj.offsetLeft + posObj.width / 2 - 60) + "'>" + key + " [AQI]: " + selectedData[key] + "</div>"
     }
     wrapper.innerHTML = innerHTML;
 }
@@ -141,6 +154,16 @@ function initGraTimeForm() {
             })
         })(i);
     }
+    addEventHandler(document, 'mouseover', function(event){
+        console.log(event.target);
+        var ele = event.target;
+        ele.className += " show";
+    })
+    addEventHandler(document, 'mouseout', function(event){
+        console.log(event.target);
+        var ele = event.target;
+        ele.className = ele.className.replace(/show/, "");
+    })
 }
 
 /**
@@ -175,7 +198,7 @@ function initAqiChartData() {
             count += tempCity[keyArr[i]];
             mcount += tempCity[keyArr[i]];
             if (i != 0 && i % 7 == 0) {
-                var tempKey = keyArr[i].slice(0, 4) + "-" + i / 7;
+                var tempKey = keyArr[i].slice(0, 4) + "第" + i / 7 + "周";
                 singleWeek[tempKey] = Math.floor(count / 7);
                 count = 0;
             }
