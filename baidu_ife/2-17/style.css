@@ -1,3 +1,10 @@
+@font-face {
+    font-family: yaHei;
+    src: url('../1-06/css/font/msyh.ttf');
+}
+* {
+    font-family: "Microsoft YaHei", yaHei;
+}
 fieldset {
     width: 1200px;
     margin: 0 auto;

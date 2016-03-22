@@ -1,7 +1,12 @@
+@font-face {
+    font-family: yaHei;
+    src: url('../1-06/css/font/msyh.ttf');
+}
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Microsoft YaHei", yaHei;
 }
 .queue-item {
     display: inline-block;
