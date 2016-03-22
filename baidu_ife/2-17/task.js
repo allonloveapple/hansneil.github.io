@@ -103,7 +103,7 @@ function renderChart() {
     innerHTML += "<div class='title'>" + pageState.nowSelectCity + "市01-03月"+ getTitle() +"空气质量报告</div>"
     for (var key in selectedData) {
         innerHTML += "<div class='aqi-bar " + pageState.nowGraTime + "' style='height:" + selectedData[key] + "px; width: " + posObj.width +"px; left:" + (posObj.left * i + posObj.offsetLeft) + "px; background-color:" + colors[Math.floor(Math.random() * 11)] + "'></div>"
-        innerHTML += "<div class='aqi-hint' style='bottom: " + (selectedData[key] + 10) + "px; left:" + (posObj.left * (i++) + posObj.offsetLeft + posObj.width / 2 - 60) + "'>" + key + " [AQI]: " + selectedData[key] + "</div>"
+        innerHTML += "<div class='aqi-hint' style='bottom: " + (selectedData[key] + 10) + "px; left:" + (posObj.left * (i++) + posObj.offsetLeft + posObj.width / 2 - 60) + "'>" + key + "<br/> [AQI]: " + selectedData[key] + "</div>"
     }
     wrapper.innerHTML = innerHTML;
 }
