@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.queue-item {
+    display: inline-block;
+    width: 40px;
+    line-height: 40px;
+    margin: 20px;
+    text-align: center;
+    background-color: #393f65;
+    color: white;
+    border-radius: 50%;
+    cursor: default;
+}
+section {
+    width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    border: 5px solid #393f65;
+    min-height: 200px;
+}
+#queue-wrapper {
+    text-align: left;
+    padding: 0 20px 0 30px;
+}
+.operation-wrapper {
+    margin: 20px 0;
+}
+#queue-value {
+    width: 100px;
+    padding: 10px 10px;
+    border: 2px solid #393f65;
+    border-radius: 10px;
+    outline: none;
+}
+button {
+    width: 80px;
+    line-height: 30px;
+    margin: 0 5px;
+    background-color: white;
+    border: 1px solid #393f65;
+    color: #393f65;
+    border-radius: 10px;
+}
+button:hover {
+    color: white;
+    background-color: #393f65;
+    cursor: pointer;
+}
