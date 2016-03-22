@@ -155,15 +155,13 @@ function initGraTimeForm() {
         })(i);
     }
     addEventHandler(document, 'mouseover', function(event){
-        console.log(event.target);
         var ele = event.target;
         ele.className += " show";
-    })
+    });
     addEventHandler(document, 'mouseout', function(event){
-        console.log(event.target);
         var ele = event.target;
         ele.className = ele.className.replace(/show/, "");
-    })
+    });
 }
 
 /**
