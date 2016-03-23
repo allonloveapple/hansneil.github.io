@@ -97,7 +97,12 @@ function hobbyHandler() {
         renderTags("hobby");
     }
 }
-var tagInput = document.getElementById("tag-input");
-var hobbyBtn = document.querySelector("button");
-addEventHandler(tagInput, "keypress", tagHandler);
-addEventHandler(hobbyBtn, "click", hobbyHandler);
+
+function init() {
+    var tagInput = document.getElementById("tag-input");
+    var hobbyBtn = document.querySelector("button");
+    addEventHandler(tagInput, "keypress", tagHandler);
+    addEventHandler(hobbyBtn, "click", hobbyHandler);
+}
+
+init();

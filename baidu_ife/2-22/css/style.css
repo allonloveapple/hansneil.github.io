@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+}
+[class *= level] {
+    display: flex;
+    padding: 20px;
+}
+[class *= child] {
+    flex: 1;
+    margin: 10px;
+}
+[class *= le] {
+    border: 2px solid #5b4563;
+    background-color: #fff;
+}
+button {
+    display: inline-block;
+    margin: 20px;
+    width: 100px;
+    line-height: 20px;
+    background-color: white;
+    border: 2px solid #5b4563;
+    border-radius: 5px;
+    font-size: .75rem;
+}
+button:hover {
+    background-color: #5b4563;
+    color: white;
+    cursor: pointer;
+}
