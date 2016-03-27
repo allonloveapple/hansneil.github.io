@@ -195,8 +195,8 @@ function initAqiChartData() {
         for (var i = 0; i < keyArr.length; i++) {
             count += tempCity[keyArr[i]];
             mcount += tempCity[keyArr[i]];
-            if (i != 0 && i % 7 == 0) {
-                var tempKey = keyArr[i].slice(0, 4) + "第" + i / 7 + "周";
+            if (i != 0 && (i+1) % 7 == 0) {
+                var tempKey = keyArr[i].slice(0, 4) + "第" + (i+1) / 7 + "周";
                 singleWeek[tempKey] = Math.floor(count / 7);
                 count = 0;
             }
