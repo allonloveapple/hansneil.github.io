@@ -96,5 +96,7 @@ var mediator = {
     },
     init: function(){
         this.commander.init();
+        var innerHTML = "准备就绪! 请操作";
+        this.renderConsole(innerHTML);
     }
 };
