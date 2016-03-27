@@ -192,15 +192,24 @@ function initAqiChartData() {
         var tempCity = aqiSourceData[key]
         var keyArr = Object.getOwnPropertyNames(tempCity);
         var tempMonth = keyArr[0].slice(5, 7);
-        for (var i = 0; i < keyArr.length; i++) {
+        var weekInit = 4, weekCount = 0;
+        for (var i = 0; i < keyArr.length; i++, weekInit++) {
             count += tempCity[keyArr[i]];
             mcount += tempCity[keyArr[i]];
-            if (i != 0 && (i+1) % 7 == 0) {
-                var tempKey = keyArr[i].slice(0, 4) + "第" + (i+1) / 7 + "周";
-                singleWeek[tempKey] = Math.floor(count / 7);
+            weekCount++;
+            if ((weekInit+1) % 7 == 0) {
+                var tempKey = keyArr[i].slice(0, 7) + "月第" + (Math.floor(weekInit / 7) + 1) + "周";
+                singleWeek[tempKey] = Math.floor(count / weekCount);
                 count = 0;
+                weekCount = 0;
             }
             if (keyArr[i].slice(5, 7) !== tempMonth || i == keyArr.length - 1) {
+                weekInit = weekCount;
+                var tempKey = keyArr[i].slice(0, 7) + "月第" + (Math.floor(weekInit / 7) + 1) + "周";
+                singleWeek[tempKey] = Math.floor(count / weekCount);
+                count = 0;
+                weekCount = 0;
+
                 tempMonth = keyArr[i].slice(5, 7);
                 var tempMKey = keyArr[i-1].slice(0, 7);
                 var tempDays = (i == keyArr.length - 1) ? keyArr[i].slice(-2) : keyArr[i-1].slice(-2);
