@@ -1,0 +1,21 @@
+$color1: #02071d;
+$color2: #ec5d4a;
+$color3: #c83b38;
+$color4: #d9e6cd;
+$color5: #32a39d;
+$color6: #3b3f58;
+$color7: #08687e;
+$color8: #d1e8d6;
+$color9: #3e4059;
+
+$svg: 800px;
+$basic: 300px;
+
+%align-middle {
+  position: absolute;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}

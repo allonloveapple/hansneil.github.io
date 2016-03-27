@@ -4,12 +4,13 @@
 var START = 1, STOP = 0;
 var spaceCraft = {
     state: START,
+    speed: 0.5,
     powerSystem: 0.05,
     energySystem: 0.02,
-    signalSystem: "",
-    selfDestructionSystem: function (){}
 };
 
-function createCraft() {
+function createCraft(order) {
     var craft = Object.create(spaceCraft);
+    craft.order = order;
+    return craft;
 }

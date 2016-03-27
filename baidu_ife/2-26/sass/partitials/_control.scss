@@ -1,0 +1,60 @@
+@import "compass";
+@import "variables";
+
+.control {
+  color: $color4;
+  & .craft-control {
+    position: relative;
+    list-style: none;
+    width: 60px;
+    margin: 40px 20px;
+    cursor: pointer;
+    &:last-child {
+      font-size: 2rem;
+    }
+    & span {
+      display: inline-block;
+      width: 60px;
+      line-height: 60px;
+      text-align: center;
+      border-radius: 50%;
+      background-color: $color5;
+    }
+    &.selected [class *= operate] {
+      display: inline-block;
+    }
+  }
+  & [class *= operate] {
+    display: none;
+    position: absolute;
+    list-style: none;
+    & button {
+      width: 25px;
+      height: 25px;
+      background-color: $color8;
+      color: $color5;
+      border: none;
+      font-size: .75rem;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    & [class *= forbid] {
+      opacity: .5;
+    }
+  }
+  & .operate-1 {
+    left: 20px;
+    top: -20px;
+  }
+  & .operate-2 {
+    left: 40px;
+    top: 15px;
+  }
+  & .operate-3 {
+    left: 20px;
+    top: 50px;
+  }
+  & .operates {
+    display: inline-block;
+  }
+}
