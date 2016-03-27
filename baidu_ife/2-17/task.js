@@ -188,6 +188,7 @@ function initAqiChartData() {
     // 将原始的源数据处理成图表需要的数据格式
     var week = {}, count = 0, singleWeek = {},
         month = {}, mcount = 0, singleMonth = {};
+
     for (var key in aqiSourceData) {
         var tempCity = aqiSourceData[key]
         var keyArr = Object.getOwnPropertyNames(tempCity);
@@ -197,24 +198,23 @@ function initAqiChartData() {
             count += tempCity[keyArr[i]];
             mcount += tempCity[keyArr[i]];
             weekCount++;
-            if ((weekInit+1) % 7 == 0) {
+            if ((weekInit+1) % 7 == 0 || i == keyArr.length - 1 || keyArr[i+1].slice(5, 7) !== tempMonth) {
                 var tempKey = keyArr[i].slice(0, 7) + "月第" + (Math.floor(weekInit / 7) + 1) + "周";
                 singleWeek[tempKey] = Math.floor(count / weekCount);
-                count = 0;
-                weekCount = 0;
-            }
-            if (keyArr[i].slice(5, 7) !== tempMonth || i == keyArr.length - 1) {
-                weekInit = weekCount;
-                var tempKey = keyArr[i].slice(0, 7) + "月第" + (Math.floor(weekInit / 7) + 1) + "周";
-                singleWeek[tempKey] = Math.floor(count / weekCount);
+
+                if (i != keyArr.length - 1 && keyArr[i+1].slice(5, 7) !== tempMonth) {
+                    weekInit = weekCount % 7;
+                }
                 count = 0;
                 weekCount = 0;
 
-                tempMonth = keyArr[i].slice(5, 7);
-                var tempMKey = keyArr[i-1].slice(0, 7);
-                var tempDays = (i == keyArr.length - 1) ? keyArr[i].slice(-2) : keyArr[i-1].slice(-2);
-                singleMonth[tempMKey] = Math.floor(mcount / tempDays);
-                mcount = 0;
+                if (i == keyArr.length - 1 || keyArr[i+1].slice(5, 7) !== tempMonth) {
+                    tempMonth = (i == keyArr.length - 1) ? keyArr[i].slice(5, 7) : keyArr[i+1].slice(5, 7);
+                    var tempMKey = keyArr[i].slice(0, 7);
+                    var tempDays = keyArr[i].slice(-2);
+                    singleMonth[tempMKey] = Math.floor(mcount / tempDays);
+                    mcount = 0;
+                }
             }
         }
         week[key] = singleWeek;
