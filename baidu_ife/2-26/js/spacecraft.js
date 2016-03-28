@@ -2,14 +2,30 @@
  * Created by hansneil on 26/3/16.
  */
 var START = 1, STOP = 0;
+//记录定时器标志
 var clearId = [], stopId = [];
+/**
+ * 飞船的超类对象
+ * @type {{state: number, speed: number, powerSystem: number, energySystem: number, energy: number, path: number, startOwnCraft: spaceCraft.startOwnCraft, stopOwnCraft: spaceCraft.stopOwnCraft, destoryOwnCraft: spaceCraft.destoryOwnCraft}}
+ */
 var spaceCraft = {
+    //飞船状态
     state: STOP,
+    //飞船运行速度
     speed: 0.5,
+    //动力系统
     powerSystem: 0.5,
+    //能源系统
     energySystem: 0.2,
+    //初始能源
     energy: 100,
+    //飞行距离
     path: 0,
+    /**
+     * 接收到飞行指令后, 执行飞行操作
+     * @param order
+     * @param id
+     */
     startOwnCraft: function(order, id) {
         var craft = document.querySelector("#craft-" + id);
         var energyText = craft.querySelector(".energy-text");
@@ -35,6 +51,11 @@ var spaceCraft = {
             craft.style.transform = "rotate(" + that.path + "deg)";
         }, 100);
     },
+    /**
+     * 接收到停止飞行指令后, 执行停止操作
+     * @param order
+     * @param id
+     */
     stopOwnCraft: function(order, id){
         var that = this;
         var craft = document.querySelector("#craft-" + id);
@@ -61,6 +82,11 @@ var spaceCraft = {
             }
         }, 100);
     },
+    /**
+     * 接收到摧毁指令后, 执行自行摧毁操作
+     * @param order
+     * @param id
+     */
     destoryOwnCraft: function(order, id){
         var craft = document.querySelector("#craft-" + id);
         if (clearId[id]) {
@@ -69,19 +95,40 @@ var spaceCraft = {
         craft.parentNode.removeChild(craft);
     }
 };
+/**
+ * 寄生模式继承飞船对象, 之后增强相关属性
+ * @param order
+ * @returns {spaceCraft}
+ */
 function createCraft(order) {
     var craft = Object.create(spaceCraft);
+    //增强属性, 记录飞船所在的轨道
     craft.order = order;
+    /**
+     * 接收Mediator广播的飞行指令, 通过判断是否对自己发出来决定是否采取操作
+     * @param command
+     * @param i
+     */
     craft.startCraft = function(command, i) {
         if (command.id == this.order) {
             this.startOwnCraft(this.order, i);
         }
     };
+    /**
+     * 接收Mediator广播的停止指令, 通过判断是否对自己发出来决定是否采取操作
+     * @param command
+     * @param i
+     */
     craft.stopCraft = function(command, i) {
         if (command.id == this.order) {
             this.stopOwnCraft(this.order, i);
         }
     };
+    /**
+     * 接收Mediator广播的摧毁指令, 通过判断是否对自己发出来决定是否采取操作
+     * @param command
+     * @param i
+     */
     craft.destoryCraft = function(command, i) {
         if (command.id == this.order) {
             this.path = 0;

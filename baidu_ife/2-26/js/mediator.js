@@ -1,18 +1,30 @@
 /**
  * Created by hansneil on 27/3/16.
  */
+/**
+ * mediator对象, 用于传播指挥官的命令,有一定的丢包率
+  * @returns {{msgArr: Array, spaceCraft: *[], renderConsole: renderConsole, addOneCraft: addOneCraft, removeOneCraft: removeOneCraft, performOneCommander: performOneCommander, init: init}}
+ */
 var mediator = function() {
+    //记录飞船的ID号
     var globalId = 3;
+
+    /**
+     * renderCrafts()函数, 根据spaceCraft中存放的飞船来渲染界面
+     * @param crafts
+     */
     function renderCrafts(crafts){
         for (var i = 0; i < crafts.length; i++){
             var orbite = document.querySelector(".orbite" + crafts[i].craft.order);
             var craft = document.createElement("div");
+            //oldCraft 获得已经渲染完成的飞船
             var oldCraft = orbite.querySelectorAll(".craft-model-" + crafts[i].craft.order);
             for (var j = 0; j < oldCraft.length; j++) {
                 if (oldCraft[j].id.replace(/[^\d]+/, "") == crafts[i].id) {
                     break;
                 }
             }
+            //排除已经渲染完成的飞船
             if (oldCraft.length == 0 || j == oldCraft.length && oldCraft[j-1].id.slice(-1) != crafts[i].id) {
                 craft.innerHTML = "<div class='craft-inner'><div class='craft-inner'><span class='energy-text'>100</span><div class='energy'></div></div></div>";
                 craft.className = "craft-model-" + crafts[i].craft.order + " visible";
@@ -23,8 +35,15 @@ var mediator = function() {
         }
     }
     return {
+        //msgArr 存储控制台信息,最多为9条消息, 超过时删除最早添加的消息
         msgArr: [],
+        //spaceCraft 存储添加到轨道的飞船, 飞船对象{craft: createCraft(), id: number}
         spaceCraft: [{craft: createCraft(1), id: 1}, {craft:createCraft(2), id:2}],
+        /**
+         * renderConsole() 渲染控制台函数, newMessage表示传入需要添加到控制台的消息, success表示是否为警告信息
+         * @param newMessage
+         * @param success
+         */
         renderConsole: function (newMessage, success) {
             var msg = document.createElement("p");
             var consoles = document.querySelector(".console");
@@ -45,6 +64,11 @@ var mediator = function() {
             consoles.innerHTML = "";
             consoles.appendChild(frag);
         },
+        /**
+         * addOneCraft()函数, 用于向轨道添加飞船, craft接收自指挥官Commander
+         * @param craft
+         * @returns {boolean}
+         */
         addOneCraft: function (craft) {
             console.log("aaa");
             //模拟丢包率
@@ -54,7 +78,6 @@ var mediator = function() {
                 var renderCraft = renderCrafts;
                 crafts.push({craft: craft, id: globalId++});
                 setTimeout(function () {
-                    console.log(crafts);
                     renderCraft(crafts);
                     var innerHTML = "[消息]: 添加飞船成功";
                     that.renderConsole(innerHTML, true);
@@ -68,6 +91,11 @@ var mediator = function() {
                 return false;
             }
         },
+        /**
+         * removeOneCraft()函数, 已废弃, 没有用到
+         * @param craft
+         * @returns {boolean}
+         */
         removeOneCraft: function (craft) {
             //模拟丢包
             if (Math.floor(Math.random() * 10) > 3) {
@@ -84,6 +112,11 @@ var mediator = function() {
                 return false;
             }
         },
+        /**
+         * performOneCommander() 接收指挥官的指令, 将指令广播给轨道上的飞船
+         * @param command
+         * @returns {boolean}
+         */
         performOneCommander: function (command) {
             //模拟丢包
             if (Math.floor(Math.random() * 10) > 3) {
@@ -121,7 +154,6 @@ var mediator = function() {
                             index.forEach(function(item){
                                 crafts.splice(item, 1);
                             });
-                            html += " " + crafts.length;
                             that.renderConsole(html, true);
                         }, 1000);
                         break;
@@ -146,6 +178,9 @@ var mediator = function() {
                 return false;
             }
         },
+        /**
+         * init() 初始化函数
+         */
         init: function () {
             renderCrafts(this.spaceCraft);
             var innerHTML = "准备就绪! 请操作";
