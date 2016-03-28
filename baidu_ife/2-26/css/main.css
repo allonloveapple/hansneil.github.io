@@ -21,9 +21,10 @@ html, body {
   height: 100%;
   background-color: #02071d;
   min-width: 1280px;
+  font-family: "Microsoft YaHei", yaHei;
 }
 
-/* line 17, ../sass/partitials/_layout.scss */
+/* line 18, ../sass/partitials/_layout.scss */
 .planet {
   width: 250px;
   height: 250px;
@@ -32,7 +33,7 @@ html, body {
   overflow: hidden;
 }
 
-/* line 27, ../sass/partitials/_layout.scss */
+/* line 28, ../sass/partitials/_layout.scss */
 .hole-1 {
   width: 20px;
   height: 20px;
@@ -43,7 +44,7 @@ html, body {
   left: 50px;
 }
 
-/* line 27, ../sass/partitials/_layout.scss */
+/* line 28, ../sass/partitials/_layout.scss */
 .hole-2 {
   width: 40px;
   height: 40px;
@@ -54,7 +55,7 @@ html, body {
   left: 90px;
 }
 
-/* line 27, ../sass/partitials/_layout.scss */
+/* line 28, ../sass/partitials/_layout.scss */
 .hole-3 {
   width: 60px;
   height: 60px;
@@ -65,7 +66,7 @@ html, body {
   left: 130px;
 }
 
-/* line 38, ../sass/partitials/_layout.scss */
+/* line 39, ../sass/partitials/_layout.scss */
 #layout {
   position: relative;
   margin: 0 auto;
@@ -73,12 +74,12 @@ html, body {
   height: 680px;
 }
 
-/* line 46, ../sass/partitials/_layout.scss */
+/* line 47, ../sass/partitials/_layout.scss */
 .orbite1 {
   width: 350px;
   height: 350px;
 }
-/* line 50, ../sass/partitials/_layout.scss */
+/* line 51, ../sass/partitials/_layout.scss */
 .orbite1 .orbite-1 {
   width: 100%;
   height: 100%;
@@ -86,14 +87,14 @@ html, body {
   border-radius: 50%;
 }
 
-/* line 57, ../sass/partitials/_layout.scss */
+/* line 58, ../sass/partitials/_layout.scss */
 .craft-model-1 {
   display: none;
   width: 360px;
   height: 40px;
   /*left: $basic + $i * 100px - 10px;*/
 }
-/* line 62, ../sass/partitials/_layout.scss */
+/* line 63, ../sass/partitials/_layout.scss */
 .craft-model-1 .craft-inner {
   float: right;
   position: relative;
@@ -104,17 +105,17 @@ html, body {
   text-align: center;
   overflow: hidden;
 }
-/* line 71, ../sass/partitials/_layout.scss */
+/* line 72, ../sass/partitials/_layout.scss */
 .craft-model-1 .craft-inner span {
   display: block;
   position: relative;
   line-height: 40px;
-  font-size: 1rem;
+  font-size: .75rem;
   z-index: 9;
   color: #02071d;
   transform: rotate(-90deg);
 }
-/* line 80, ../sass/partitials/_layout.scss */
+/* line 81, ../sass/partitials/_layout.scss */
 .craft-model-1 .craft-inner .energy {
   position: absolute;
   width: 100%;
@@ -124,12 +125,12 @@ html, body {
   z-index: 0;
 }
 
-/* line 46, ../sass/partitials/_layout.scss */
+/* line 47, ../sass/partitials/_layout.scss */
 .orbite2 {
   width: 450px;
   height: 450px;
 }
-/* line 50, ../sass/partitials/_layout.scss */
+/* line 51, ../sass/partitials/_layout.scss */
 .orbite2 .orbite-2 {
   width: 100%;
   height: 100%;
@@ -137,14 +138,14 @@ html, body {
   border-radius: 50%;
 }
 
-/* line 57, ../sass/partitials/_layout.scss */
+/* line 58, ../sass/partitials/_layout.scss */
 .craft-model-2 {
   display: none;
   width: 460px;
   height: 40px;
   /*left: $basic + $i * 100px - 10px;*/
 }
-/* line 62, ../sass/partitials/_layout.scss */
+/* line 63, ../sass/partitials/_layout.scss */
 .craft-model-2 .craft-inner {
   float: right;
   position: relative;
@@ -155,17 +156,17 @@ html, body {
   text-align: center;
   overflow: hidden;
 }
-/* line 71, ../sass/partitials/_layout.scss */
+/* line 72, ../sass/partitials/_layout.scss */
 .craft-model-2 .craft-inner span {
   display: block;
   position: relative;
   line-height: 40px;
-  font-size: 1rem;
+  font-size: .75rem;
   z-index: 9;
   color: #02071d;
   transform: rotate(-90deg);
 }
-/* line 80, ../sass/partitials/_layout.scss */
+/* line 81, ../sass/partitials/_layout.scss */
 .craft-model-2 .craft-inner .energy {
   position: absolute;
   width: 100%;
@@ -175,12 +176,12 @@ html, body {
   z-index: 0;
 }
 
-/* line 46, ../sass/partitials/_layout.scss */
+/* line 47, ../sass/partitials/_layout.scss */
 .orbite3 {
   width: 550px;
   height: 550px;
 }
-/* line 50, ../sass/partitials/_layout.scss */
+/* line 51, ../sass/partitials/_layout.scss */
 .orbite3 .orbite-3 {
   width: 100%;
   height: 100%;
@@ -188,14 +189,14 @@ html, body {
   border-radius: 50%;
 }
 
-/* line 57, ../sass/partitials/_layout.scss */
+/* line 58, ../sass/partitials/_layout.scss */
 .craft-model-3 {
   display: none;
   width: 560px;
   height: 40px;
   /*left: $basic + $i * 100px - 10px;*/
 }
-/* line 62, ../sass/partitials/_layout.scss */
+/* line 63, ../sass/partitials/_layout.scss */
 .craft-model-3 .craft-inner {
   float: right;
   position: relative;
@@ -206,17 +207,17 @@ html, body {
   text-align: center;
   overflow: hidden;
 }
-/* line 71, ../sass/partitials/_layout.scss */
+/* line 72, ../sass/partitials/_layout.scss */
 .craft-model-3 .craft-inner span {
   display: block;
   position: relative;
   line-height: 40px;
-  font-size: 1rem;
+  font-size: .75rem;
   z-index: 9;
   color: #02071d;
   transform: rotate(-90deg);
 }
-/* line 80, ../sass/partitials/_layout.scss */
+/* line 81, ../sass/partitials/_layout.scss */
 .craft-model-3 .craft-inner .energy {
   position: absolute;
   width: 100%;
@@ -226,12 +227,12 @@ html, body {
   z-index: 0;
 }
 
-/* line 46, ../sass/partitials/_layout.scss */
+/* line 47, ../sass/partitials/_layout.scss */
 .orbite4 {
   width: 650px;
   height: 650px;
 }
-/* line 50, ../sass/partitials/_layout.scss */
+/* line 51, ../sass/partitials/_layout.scss */
 .orbite4 .orbite-4 {
   width: 100%;
   height: 100%;
@@ -239,14 +240,14 @@ html, body {
   border-radius: 50%;
 }
 
-/* line 57, ../sass/partitials/_layout.scss */
+/* line 58, ../sass/partitials/_layout.scss */
 .craft-model-4 {
   display: none;
   width: 660px;
   height: 40px;
   /*left: $basic + $i * 100px - 10px;*/
 }
-/* line 62, ../sass/partitials/_layout.scss */
+/* line 63, ../sass/partitials/_layout.scss */
 .craft-model-4 .craft-inner {
   float: right;
   position: relative;
@@ -257,17 +258,17 @@ html, body {
   text-align: center;
   overflow: hidden;
 }
-/* line 71, ../sass/partitials/_layout.scss */
+/* line 72, ../sass/partitials/_layout.scss */
 .craft-model-4 .craft-inner span {
   display: block;
   position: relative;
   line-height: 40px;
-  font-size: 1rem;
+  font-size: .75rem;
   z-index: 9;
   color: #02071d;
   transform: rotate(-90deg);
 }
-/* line 80, ../sass/partitials/_layout.scss */
+/* line 81, ../sass/partitials/_layout.scss */
 .craft-model-4 .craft-inner .energy {
   position: absolute;
   width: 100%;
@@ -277,12 +278,12 @@ html, body {
   z-index: 0;
 }
 
-/* line 93, ../sass/partitials/_layout.scss */
+/* line 94, ../sass/partitials/_layout.scss */
 .hidden {
   display: none;
 }
 
-/* line 96, ../sass/partitials/_layout.scss */
+/* line 97, ../sass/partitials/_layout.scss */
 .visible {
   display: block;
 }
@@ -295,25 +296,25 @@ html, body {
     transform: rotate(360deg);
   }
 }
-/* line 108, ../sass/partitials/_layout.scss */
+/* line 109, ../sass/partitials/_layout.scss */
 .rotating {
   animation: rotating 50s linear infinite;
 }
 
-/* line 112, ../sass/partitials/_layout.scss */
+/* line 113, ../sass/partitials/_layout.scss */
 .background {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-/* line 116, ../sass/partitials/_layout.scss */
+/* line 117, ../sass/partitials/_layout.scss */
 .background [class^=planet] {
   position: absolute;
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
-/* line 122, ../sass/partitials/_layout.scss */
+/* line 123, ../sass/partitials/_layout.scss */
 .background .hole-4 {
   position: absolute;
   width: 15px;
@@ -323,7 +324,7 @@ html, body {
   top: 20px;
   left: 20px;
 }
-/* line 131, ../sass/partitials/_layout.scss */
+/* line 132, ../sass/partitials/_layout.scss */
 .background .hole-5 {
   position: absolute;
   width: 10px;
@@ -333,14 +334,14 @@ html, body {
   top: 10px;
   left: -5px;
 }
-/* line 140, ../sass/partitials/_layout.scss */
+/* line 141, ../sass/partitials/_layout.scss */
 .background .planet-1 {
   top: 450px;
   left: 300px;
   background-color: #d9e6cd;
   overflow: hidden;
 }
-/* line 146, ../sass/partitials/_layout.scss */
+/* line 147, ../sass/partitials/_layout.scss */
 .background .planet-2 {
   width: 30px;
   height: 30px;
@@ -349,41 +350,41 @@ html, body {
   background-color: #11a4c6;
   overflow: hidden;
 }
-/* line 153, ../sass/partitials/_layout.scss */
+/* line 154, ../sass/partitials/_layout.scss */
 .background .planet-2 .hole-4 {
   background-color: #1068a8;
 }
-/* line 156, ../sass/partitials/_layout.scss */
+/* line 157, ../sass/partitials/_layout.scss */
 .background .planet-2 .hole-5 {
   background-color: #84bde7;
 }
-/* line 160, ../sass/partitials/_layout.scss */
+/* line 161, ../sass/partitials/_layout.scss */
 .background .planet-3 {
   top: 450px;
   right: 300px;
   background-color: #f5a83e;
   overflow: hidden;
 }
-/* line 165, ../sass/partitials/_layout.scss */
+/* line 166, ../sass/partitials/_layout.scss */
 .background .planet-3 .hole-4 {
   background-color: #e0862e;
 }
-/* line 168, ../sass/partitials/_layout.scss */
+/* line 169, ../sass/partitials/_layout.scss */
 .background .planet-3 .hole-5 {
   background-color: #e0862e;
 }
-/* line 173, ../sass/partitials/_layout.scss */
+/* line 174, ../sass/partitials/_layout.scss */
 .background .planet-4 {
   top: 50px;
   left: 300px;
   background-color: #f5a83e;
   overflow: hidden;
 }
-/* line 178, ../sass/partitials/_layout.scss */
+/* line 179, ../sass/partitials/_layout.scss */
 .background .planet-4 .hole-4 {
   background-color: #e0862e;
 }
-/* line 181, ../sass/partitials/_layout.scss */
+/* line 182, ../sass/partitials/_layout.scss */
 .background .planet-4 .hole-5 {
   background-color: #e0862e;
 }
@@ -499,11 +500,15 @@ html, body {
 }
 
 @font-face {
+  font-family: "Microsoft YaHei", yaHei;
+  src: url("../../1-06/css/font/msyh.ttf");
+}
+@font-face {
   font-family: 'Glyphicons Halflings';
   src: url("fonts/glyphicons-halflings-regular.eot");
   src: url("fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("fonts/glyphicons-halflings-regular.woff") format("woff"), url("fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
-/* line 13, ../sass/main.scss */
+/* line 17, ../sass/main.scss */
 .glyphicon {
   position: relative;
   top: 1px;
@@ -516,17 +521,17 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 25, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 .glyphicon-play:before {
   content: "\e072";
 }
 
-/* line 28, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 .glyphicon-stop:before {
   content: "\e074";
 }
 
-/* line 31, ../sass/main.scss */
+/* line 35, ../sass/main.scss */
 .glyphicon-trash:before {
   content: "\e020";
 }

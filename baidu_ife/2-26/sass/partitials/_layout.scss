@@ -12,6 +12,7 @@ html, body {
   height: 100%;
   background-color: $color1;
   min-width: 1280px;
+  font-family: "Microsoft YaHei", yaHei;
 }
 
 .planet {
@@ -72,7 +73,7 @@ html, body {
         display: block;
         position: relative;
         line-height: 40px;
-        font-size: 1rem;
+        font-size: .75rem;
         z-index: 9;
         color: $color1;
         transform: rotate(-90deg);
