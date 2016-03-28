@@ -1,5 +1,5 @@
-/* line 14, ../sass/partitials/_variables.scss */
-.planet, #layout, #orbite1, .craft-model-1, #orbite2, .craft-model-2, #orbite3, .craft-model-3, #orbite4, .craft-model-4 {
+/* line 15, ../sass/partitials/_variables.scss */
+.planet, .orbite1, .craft-model-1, .orbite2, .craft-model-2, .orbite3, .craft-model-3, .orbite4, .craft-model-4 {
   position: absolute;
   top: 0;
   right: 0;
@@ -20,13 +20,13 @@ html, body {
   width: 100%;
   height: 100%;
   background-color: #02071d;
-  overflow: hidden;
+  min-width: 1280px;
 }
 
 /* line 17, ../sass/partitials/_layout.scss */
 .planet {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   background-color: #ec5d4a;
   border-radius: 50%;
 }
@@ -38,8 +38,8 @@ html, body {
   border-radius: 50%;
   background-color: #c83b38;
   position: relative;
-  top: 50px;
-  left: 60px;
+  top: 40px;
+  left: 50px;
 }
 
 /* line 26, ../sass/partitials/_layout.scss */
@@ -49,8 +49,8 @@ html, body {
   border-radius: 50%;
   background-color: #c83b38;
   position: relative;
-  top: 100px;
-  left: 110px;
+  top: 80px;
+  left: 90px;
 }
 
 /* line 26, ../sass/partitials/_layout.scss */
@@ -60,94 +60,228 @@ html, body {
   border-radius: 50%;
   background-color: #c83b38;
   position: relative;
-  top: 150px;
-  left: 160px;
+  top: 120px;
+  left: 130px;
 }
 
 /* line 37, ../sass/partitials/_layout.scss */
 #layout {
+  position: relative;
+  margin: 0 auto;
   width: 800px;
-  height: 800px;
+  height: 680px;
 }
 
-/* line 44, ../sass/partitials/_layout.scss */
-#orbite1 {
-  width: 400px;
-  height: 400px;
+/* line 45, ../sass/partitials/_layout.scss */
+.orbite1 {
+  width: 350px;
+  height: 350px;
+}
+/* line 49, ../sass/partitials/_layout.scss */
+.orbite1 .orbite-1 {
+  width: 100%;
+  height: 100%;
   border: 2px solid #3e4059;
   border-radius: 50%;
 }
 
-/* line 51, ../sass/partitials/_layout.scss */
+/* line 56, ../sass/partitials/_layout.scss */
 .craft-model-1 {
   display: none;
+  width: 360px;
+  height: 40px;
+  /*left: $basic + $i * 100px - 10px;*/
+}
+/* line 61, ../sass/partitials/_layout.scss */
+.craft-model-1 .craft-inner {
+  float: right;
+  position: relative;
   width: 20px;
   height: 40px;
   border-radius: 10px;
   background-color: #d9e6cd;
-  left: 390px;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 70, ../sass/partitials/_layout.scss */
+.craft-model-1 .craft-inner span {
+  display: block;
+  position: relative;
+  line-height: 40px;
+  font-size: 1rem;
+  z-index: 9;
+  color: #02071d;
+  transform: rotate(-90deg);
+}
+/* line 79, ../sass/partitials/_layout.scss */
+.craft-model-1 .craft-inner .energy {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-color: #2fa06c;
+  z-index: 0;
 }
 
-/* line 44, ../sass/partitials/_layout.scss */
-#orbite2 {
-  width: 500px;
-  height: 500px;
+/* line 45, ../sass/partitials/_layout.scss */
+.orbite2 {
+  width: 450px;
+  height: 450px;
+}
+/* line 49, ../sass/partitials/_layout.scss */
+.orbite2 .orbite-2 {
+  width: 100%;
+  height: 100%;
   border: 2px solid #3e4059;
   border-radius: 50%;
 }
 
-/* line 51, ../sass/partitials/_layout.scss */
+/* line 56, ../sass/partitials/_layout.scss */
 .craft-model-2 {
   display: none;
+  width: 460px;
+  height: 40px;
+  /*left: $basic + $i * 100px - 10px;*/
+}
+/* line 61, ../sass/partitials/_layout.scss */
+.craft-model-2 .craft-inner {
+  float: right;
+  position: relative;
   width: 20px;
   height: 40px;
   border-radius: 10px;
   background-color: #d9e6cd;
-  left: 490px;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 70, ../sass/partitials/_layout.scss */
+.craft-model-2 .craft-inner span {
+  display: block;
+  position: relative;
+  line-height: 40px;
+  font-size: 1rem;
+  z-index: 9;
+  color: #02071d;
+  transform: rotate(-90deg);
+}
+/* line 79, ../sass/partitials/_layout.scss */
+.craft-model-2 .craft-inner .energy {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-color: #2fa06c;
+  z-index: 0;
 }
 
-/* line 44, ../sass/partitials/_layout.scss */
-#orbite3 {
-  width: 600px;
-  height: 600px;
+/* line 45, ../sass/partitials/_layout.scss */
+.orbite3 {
+  width: 550px;
+  height: 550px;
+}
+/* line 49, ../sass/partitials/_layout.scss */
+.orbite3 .orbite-3 {
+  width: 100%;
+  height: 100%;
   border: 2px solid #3e4059;
   border-radius: 50%;
 }
 
-/* line 51, ../sass/partitials/_layout.scss */
+/* line 56, ../sass/partitials/_layout.scss */
 .craft-model-3 {
   display: none;
+  width: 560px;
+  height: 40px;
+  /*left: $basic + $i * 100px - 10px;*/
+}
+/* line 61, ../sass/partitials/_layout.scss */
+.craft-model-3 .craft-inner {
+  float: right;
+  position: relative;
   width: 20px;
   height: 40px;
   border-radius: 10px;
   background-color: #d9e6cd;
-  left: 590px;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 70, ../sass/partitials/_layout.scss */
+.craft-model-3 .craft-inner span {
+  display: block;
+  position: relative;
+  line-height: 40px;
+  font-size: 1rem;
+  z-index: 9;
+  color: #02071d;
+  transform: rotate(-90deg);
+}
+/* line 79, ../sass/partitials/_layout.scss */
+.craft-model-3 .craft-inner .energy {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-color: #2fa06c;
+  z-index: 0;
 }
 
-/* line 44, ../sass/partitials/_layout.scss */
-#orbite4 {
-  width: 700px;
-  height: 700px;
+/* line 45, ../sass/partitials/_layout.scss */
+.orbite4 {
+  width: 650px;
+  height: 650px;
+}
+/* line 49, ../sass/partitials/_layout.scss */
+.orbite4 .orbite-4 {
+  width: 100%;
+  height: 100%;
   border: 2px solid #3e4059;
   border-radius: 50%;
 }
 
-/* line 51, ../sass/partitials/_layout.scss */
+/* line 56, ../sass/partitials/_layout.scss */
 .craft-model-4 {
   display: none;
+  width: 660px;
+  height: 40px;
+  /*left: $basic + $i * 100px - 10px;*/
+}
+/* line 61, ../sass/partitials/_layout.scss */
+.craft-model-4 .craft-inner {
+  float: right;
+  position: relative;
   width: 20px;
   height: 40px;
   border-radius: 10px;
   background-color: #d9e6cd;
-  left: 690px;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 70, ../sass/partitials/_layout.scss */
+.craft-model-4 .craft-inner span {
+  display: block;
+  position: relative;
+  line-height: 40px;
+  font-size: 1rem;
+  z-index: 9;
+  color: #02071d;
+  transform: rotate(-90deg);
+}
+/* line 79, ../sass/partitials/_layout.scss */
+.craft-model-4 .craft-inner .energy {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-color: #2fa06c;
+  z-index: 0;
 }
 
-/* line 62, ../sass/partitials/_layout.scss */
+/* line 92, ../sass/partitials/_layout.scss */
 .hidden {
   display: none;
 }
 
-/* line 65, ../sass/partitials/_layout.scss */
+/* line 95, ../sass/partitials/_layout.scss */
 .visible {
   display: block;
 }
@@ -160,26 +294,30 @@ html, body {
     transform: rotate(360deg);
   }
 }
-/*.rotating {
+/* line 107, ../sass/partitials/_layout.scss */
+.rotating {
   animation: rotating 10s linear infinite;
-}*/
+}
+
 /* line 4, ../sass/partitials/_control.scss */
 .control {
+  flex: 7;
   color: #d9e6cd;
 }
-/* line 6, ../sass/partitials/_control.scss */
+/* line 7, ../sass/partitials/_control.scss */
 .control .craft-control {
   position: relative;
   list-style: none;
+  display: inline-block;
   width: 60px;
-  margin: 40px 20px;
+  margin: 40px 40px;
   cursor: pointer;
 }
-/* line 12, ../sass/partitials/_control.scss */
+/* line 14, ../sass/partitials/_control.scss */
 .control .craft-control:last-child {
   font-size: 2rem;
 }
-/* line 15, ../sass/partitials/_control.scss */
+/* line 17, ../sass/partitials/_control.scss */
 .control .craft-control span {
   display: inline-block;
   width: 60px;
@@ -188,17 +326,21 @@ html, body {
   border-radius: 50%;
   background-color: #32a39d;
 }
-/* line 23, ../sass/partitials/_control.scss */
+/* line 25, ../sass/partitials/_control.scss */
 .control .craft-control.selected [class*=operate] {
   display: inline-block;
 }
-/* line 27, ../sass/partitials/_control.scss */
+/* line 28, ../sass/partitials/_control.scss */
+.control .craft-control.hidden {
+  display: none;
+}
+/* line 32, ../sass/partitials/_control.scss */
 .control [class*=operate] {
   display: none;
   position: absolute;
   list-style: none;
 }
-/* line 31, ../sass/partitials/_control.scss */
+/* line 36, ../sass/partitials/_control.scss */
 .control [class*=operate] button {
   width: 25px;
   height: 25px;
@@ -209,44 +351,59 @@ html, body {
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 41, ../sass/partitials/_control.scss */
+/* line 46, ../sass/partitials/_control.scss */
 .control [class*=operate] [class*=forbid] {
   opacity: .5;
 }
-/* line 45, ../sass/partitials/_control.scss */
+/* line 50, ../sass/partitials/_control.scss */
 .control .operate-1 {
   left: 20px;
   top: -20px;
 }
-/* line 49, ../sass/partitials/_control.scss */
+/* line 54, ../sass/partitials/_control.scss */
 .control .operate-2 {
   left: 40px;
   top: 15px;
 }
-/* line 53, ../sass/partitials/_control.scss */
+/* line 58, ../sass/partitials/_control.scss */
 .control .operate-3 {
   left: 20px;
   top: 50px;
 }
-/* line 57, ../sass/partitials/_control.scss */
+/* line 62, ../sass/partitials/_control.scss */
 .control .operates {
   display: inline-block;
 }
 
+/* line 68, ../sass/partitials/_control.scss */
+.control-wrapper {
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 150px;
+  border: 2px dotted #3b3f58;
+  border-radius: 10px;
+}
+
 /* line 3, ../sass/partitials/_console.scss */
 .console {
-  position: absolute;
+  flex: 3;
+  margin: 0 20px;
+  /*position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 0;*/
   width: 300px;
-  height: 200px;
+  height: 150px;
   padding: 0 10px;
   line-height: 16px;
-  border: 2px dotted #32a39d;
+  border-left: 2px dotted #3b3f58;
   color: #32a39d;
   font-size: .75rem;
 }
-/* line 14, ../sass/partitials/_console.scss */
+/* line 16, ../sass/partitials/_console.scss */
 .console .success {
   color: #d9e6cd;
 }

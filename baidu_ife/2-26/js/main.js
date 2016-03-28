@@ -20,8 +20,8 @@ for (var i = 0; i < controlButton.length; i++) {
 var addButton = document.querySelector(".craft-add");
 addButton.addEventListener("click", function(event) {
     var target = event.target;
-    extend(mediator, target);
-    target.addOneCraft();
+    extend(commander, target);
+    target.addCraft();
 })
 
 var stopButton = document.querySelectorAll(".stop");
@@ -33,12 +33,11 @@ for (var i = 0; i < stopButton.length; i++) {
                 id: i+1,
                 command: 'stop'
             };
-            extend(mediator, target);
-            if (target.performOneCommander(command)) {
-                target.style.display = "none";
-                var start = target.parentNode.parentNode.querySelector(".start");
-                start.style.display = "block";
-            }
+            extend(commander, target);
+            target.performCommand(command);
+            target.style.display = "none";
+            var start = target.parentNode.parentNode.querySelector(".start");
+            start.style.display = "block";
 
         })
     })(i);
@@ -53,12 +52,11 @@ for (var i = 0; i < stopButton.length; i++) {
                 id: i+1,
                 command: 'start'
             };
-            extend(mediator, target);
-            if (target.performOneCommander(command)) {
-                target.style.display = "none";
-                var stop = target.parentNode.parentNode.querySelector(".stop");
-                stop.style.display = "block";
-            }
+            extend(commander, target);
+            target.performCommand(command);
+            target.style.display = "none";
+            var stop = target.parentNode.parentNode.querySelector(".stop");
+            stop.style.display = "block";
         })
     })(i);
 }
@@ -72,10 +70,10 @@ for (var i = 0; i < stopButton.length; i++) {
                 id: i+1,
                 command: 'destory'
             };
-            extend(mediator, target);
-            target.performOneCommander(command);
+            extend(commander, target);
+            target.performCommand(command);
         })
     })(i);
 }
 
-mediator.init();
+commander.init();

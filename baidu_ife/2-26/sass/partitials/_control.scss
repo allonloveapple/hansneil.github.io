@@ -2,12 +2,14 @@
 @import "variables";
 
 .control {
+  flex: 7;
   color: $color4;
   & .craft-control {
     position: relative;
     list-style: none;
+    display: inline-block;
     width: 60px;
-    margin: 40px 20px;
+    margin: 40px 40px;
     cursor: pointer;
     &:last-child {
       font-size: 2rem;
@@ -22,6 +24,9 @@
     }
     &.selected [class *= operate] {
       display: inline-block;
+    }
+    &.hidden {
+      display: none;
     }
   }
   & [class *= operate] {
@@ -57,4 +62,17 @@
   & .operates {
     display: inline-block;
   }
+}
+
+
+.control-wrapper {
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 150px;
+  border: 2px dotted $color6;
+  border-radius: 10px;
 }
