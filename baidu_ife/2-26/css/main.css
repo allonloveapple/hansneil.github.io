@@ -440,32 +440,33 @@ html, body {
   font-size: .75rem;
   border-radius: 50%;
   cursor: pointer;
+  outline: none;
 }
-/* line 46, ../sass/partitials/_control.scss */
+/* line 47, ../sass/partitials/_control.scss */
 .control [class*=operate] [class*=forbid] {
   opacity: .5;
 }
-/* line 50, ../sass/partitials/_control.scss */
+/* line 51, ../sass/partitials/_control.scss */
 .control .operate-1 {
   left: 20px;
   top: -20px;
 }
-/* line 54, ../sass/partitials/_control.scss */
+/* line 55, ../sass/partitials/_control.scss */
 .control .operate-2 {
   left: 40px;
   top: 15px;
 }
-/* line 58, ../sass/partitials/_control.scss */
+/* line 59, ../sass/partitials/_control.scss */
 .control .operate-3 {
   left: 20px;
   top: 50px;
 }
-/* line 62, ../sass/partitials/_control.scss */
+/* line 63, ../sass/partitials/_control.scss */
 .control .operates {
   display: inline-block;
 }
 
-/* line 68, ../sass/partitials/_control.scss */
+/* line 69, ../sass/partitials/_control.scss */
 .control-wrapper {
   display: flex;
   position: relative;
