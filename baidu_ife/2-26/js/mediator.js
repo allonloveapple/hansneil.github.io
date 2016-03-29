@@ -70,7 +70,6 @@ var mediator = function() {
          * @returns {boolean}
          */
         addOneCraft: function (craft) {
-            console.log("aaa");
             //模拟丢包率
             if (Math.floor(Math.random() * 10) > 3) {
                 var that = this;
@@ -151,8 +150,10 @@ var mediator = function() {
                                     index.push(i);
                                 }
                             }
-                            index.forEach(function(item){
-                                crafts.splice(item, 1);
+                            //删除已经摧毁的飞船实例,注意splice的特殊之处,去掉一项后所有后面的索引都要减1
+                            //bug
+                            index.forEach(function(item, index){
+                                crafts.splice(item-index, 1);
                             });
                             that.renderConsole(html, true);
                         }, 1000);

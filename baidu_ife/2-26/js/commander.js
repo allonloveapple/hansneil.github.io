@@ -27,7 +27,6 @@ var commander = {
                     break;
                 }
             }
-            console.log(i);
             controlButton[i].className = "craft-control";
             controlButton[i].querySelector(".start").style.display = "block";
             controlButton[i].querySelector(".stop").style.display = "block";
