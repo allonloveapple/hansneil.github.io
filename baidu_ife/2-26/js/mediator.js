@@ -71,24 +71,24 @@ var mediator = function() {
          */
         addOneCraft: function (craft) {
             //模拟丢包率
-            if (Math.floor(Math.random() * 10) > 3) {
+            /*if (Math.floor(Math.random() * 10) > 3) {*/
                 var that = this;
                 var crafts = this.spaceCraft;
                 var renderCraft = renderCrafts;
                 crafts.push({craft: craft, id: globalId++});
-                setTimeout(function () {
+                /*setTimeout(function () {*/
                     renderCraft(crafts);
                     var innerHTML = "[消息]:" + craft.order +"号轨道添加飞船成功";
                     that.renderConsole(innerHTML, true);
-                }, 1000);
-                return true;
-            } else {
+                /*}, 1000);
+                return true;*/
+            /*} else {
                 var innerHTML = "[注意]:增加飞船的命令丢包了!!!!", that = this;
                 setTimeout(function() {
                     that.renderConsole(innerHTML);
                 }, 1000);
                 return false;
-            }
+            }*/
         },
         /**
          * removeOneCraft()函数, 已废弃, 没有用到

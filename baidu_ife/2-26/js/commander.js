@@ -32,9 +32,9 @@ var commander = {
             controlButton[i].querySelector(".stop").style.display = "block";
             craft = createCraft(i+1);
             this.spaceCraft.push(craft);
-            this.mediator.addOneCraft(craft);
             var html = "[指挥官]:" + (i+1) +"号轨道添加飞船的指令已发送";
             this.mediator.renderConsole(html, true);
+            this.mediator.addOneCraft(craft);
         } else {
             var html = "[指挥官]:轨道已满,请先销毁飞船!!!";
             this.mediator.renderConsole(html);
