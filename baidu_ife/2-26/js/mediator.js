@@ -125,6 +125,7 @@ var mediator = function() {
                     case "start":
                         html = "[消息]:" + command.id + "号飞船启动成功";
                         setTimeout(function () {
+                            //广播启动指令
                             for (var i =0; i < crafts.length; i++) {
                                 crafts[i].craft.startCraft(command, crafts[i].id);
                             }
@@ -135,6 +136,7 @@ var mediator = function() {
                         html = "[消息]:" + command.id + "号飞船停止成功";
                         setTimeout(function () {
                             for (var i =0; i < crafts.length; i++) {
+                                //广播停止指令
                                 crafts[i].craft.stopCraft(command, crafts[i].id);
                             }
                             that.renderConsole(html, true);
@@ -145,6 +147,7 @@ var mediator = function() {
                         setTimeout(function () {
                             var index = [];
                             for (var i =0; i < crafts.length; i++) {
+                                //广播摧毁指令
                                 crafts[i].craft.destoryCraft(command, crafts[i].id);
                                 if (crafts[i].craft.order == command.id) {
                                     index.push(i);
