@@ -63,26 +63,21 @@ function initAddButton() {
 function initStopButton() {
     var stopButton = document.querySelectorAll(".stop");
 
-    /**
-     * 停止按钮的事件处理程序
-     * @param event
-     */
-    function stopHandler(event){
-        var target = event.currentTarget;
-        var command = {
-            id: i + 1,
-            command: 'stop'
-        };
-        extend(commander, target);
-        target.performCommand(command);
-        target.style.display = "none";
-        var start = target.parentNode.parentNode.querySelector(".start");
-        start.style.display = "block";
-
-    }
     for (var i = 0; i < stopButton.length; i++) {
         (function (i) {
-            EventHandler.addEventHandler(stopButton[i], "click", stopHandler);
+            EventHandler.addEventHandler(stopButton[i], "click", function (event){
+                var target = event.currentTarget;
+                var command = {
+                    id: i + 1,
+                    command: 'stop'
+                };
+                extend(commander, target);
+                target.performCommand(command);
+                target.style.display = "none";
+                var start = target.parentNode.parentNode.querySelector(".start");
+                start.style.display = "block";
+
+            });
         })(i);
     }
 }
@@ -94,26 +89,20 @@ function initStopButton() {
 function initStartButton() {
     var startButton = document.querySelectorAll(".start");
 
-    /**
-     * 飞行按钮的事件处理程序
-     * @param event
-     */
-    function startHandler(event) {
-        var target = event.currentTarget;
-        var command = {
-            id: i + 1,
-            command: 'start'
-        };
-        extend(commander, target);
-        target.performCommand(command);
-        target.style.display = "none";
-        var stop = target.parentNode.parentNode.querySelector(".stop");
-        stop.style.display = "block";
-    }
-
     for (var i = 0; i < startButton.length; i++) {
         (function (i) {
-            EventHandler.addEventHandler(startButton[i], "click", startHandler);
+            EventHandler.addEventHandler(startButton[i], "click", function (event) {
+                var target = event.currentTarget;
+                var command = {
+                    id: i + 1,
+                    command: 'start'
+                };
+                extend(commander, target);
+                target.performCommand(command);
+                target.style.display = "none";
+                var stop = target.parentNode.parentNode.querySelector(".stop");
+                stop.style.display = "block";
+            });
         })(i);
     }
 }
@@ -125,23 +114,17 @@ function initStartButton() {
 function initDestoryButton() {
     var destoryButton = document.querySelectorAll(".destory");
 
-    /**
-     * 飞船摧毁按钮事件处理程序
-     * @param event
-     */
-    function destoryHandler(event) {
-        var target = event.currentTarget;
-        var command = {
-            id: i + 1,
-            command: 'destory'
-        };
-        extend(commander, target);
-        target.performCommand(command);
-    }
-
     for (var i = 0; i < destoryButton.length; i++) {
         (function (i) {
-            EventHandler.addEventHandler(destoryButton[i], "click", destoryHandler);
+            EventHandler.addEventHandler(destoryButton[i], "click", function(event) {
+                var target = event.currentTarget;
+                var command = {
+                    id: i + 1,
+                    command: 'destory'
+                };
+                extend(commander, target);
+                target.performCommand(command);
+            });
         })(i);
     }
 }
