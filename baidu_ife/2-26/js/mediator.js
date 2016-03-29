@@ -78,7 +78,7 @@ var mediator = function() {
                 crafts.push({craft: craft, id: globalId++});
                 setTimeout(function () {
                     renderCraft(crafts);
-                    var innerHTML = "[消息]: 添加飞船成功";
+                    var innerHTML = "[消息]:" + craft.order +"号轨道添加飞船成功";
                     that.renderConsole(innerHTML, true);
                 }, 1000);
                 return true;

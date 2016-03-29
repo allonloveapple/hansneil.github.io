@@ -33,7 +33,7 @@ var commander = {
             craft = createCraft(i+1);
             this.spaceCraft.push(craft);
             this.mediator.addOneCraft(craft);
-            var html = "[指挥官]:添加飞船的指令已发送";
+            var html = "[指挥官]:" + (i+1) +"号轨道添加飞船的指令已发送";
             this.mediator.renderConsole(html, true);
         } else {
             var html = "[指挥官]:轨道已满,请先销毁飞船!!!";
@@ -46,14 +46,14 @@ var commander = {
      */
     performCommand: function(command) {
         if (command.command == "destory") {
-            var html = "[指挥官]:飞船摧毁指令已发送";
+            var html = "[指挥官]:" + command.id +"号飞船摧毁指令已发送";
             this.mediator.renderConsole(html, true);
             this.removeCraft(command.id);
         } else if (command.command == "start") {
-            var html = "[指挥官]:飞船飞行指令已发送";
+            var html = "[指挥官]:" + command.id +"号飞船飞行指令已发送";
             this.mediator.renderConsole(html, true);
         } else {
-            var html = "[指挥官]:飞船停止指令已发送";
+            var html = "[指挥官]:" + command.id + "号飞船停止指令已发送";
             this.mediator.renderConsole(html, true);
         }
         this.mediator.performOneCommander(command);
