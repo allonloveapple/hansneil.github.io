@@ -14,22 +14,17 @@ var spaceCraft = {
     //飞船运行速度
     speed: 0.5,
     //动力系统
-    powerSystem: 0.5,
+    energyConsume: 0.5,
     //能源系统
     energySystem: 0.2,
     //初始能源
     energy: 100,
-    //飞行距离
-    path: 0,
     /**
      * 接收到飞行指令后, 执行飞行操作
      * @param order
      * @param id
      */
     startOwnCraft: function(order, id) {
-        var craft = document.querySelector("#craft-" + id);
-        var energyText = craft.querySelector(".energy-text");
-        var energyBar = craft.querySelector(".energy");
         var speed = this.speed;
         var that = this;
         this.state = START;
@@ -38,8 +33,10 @@ var spaceCraft = {
             clearInterval(clearId[id]);
         }
         clearId[id] = setInterval(function(){
-            that.path += speed;
-            that.energy += that.energySystem - that.powerSystem;
+            var craft = document.querySelector("#craft-" + id);
+            var energyText = craft.querySelector(".energy-text");
+            var energyBar = craft.querySelector(".energy");
+            that.energy += that.energySystem - that.energyConsume;
             energyText.textContent = Math.floor(that.energy);
             energyBar.style.height = that.energy + "%";
             if (that.energy <= 50) {
@@ -48,7 +45,9 @@ var spaceCraft = {
             if (Math.floor(that.energy) <= 0) {
                 that.stopOwnCraft(order, id);
             }
-            craft.style.transform = "rotate(" + that.path + "deg)";
+            var angle = /\d*\.?\d/.exec(craft.style.transform);
+            angle = parseFloat(angle) + speed;
+            craft.style.transform = "rotate(" + angle + "deg)";
         }, 100);
     },
     /**
@@ -87,13 +86,13 @@ var spaceCraft = {
      * @param order
      * @param id
      */
-    destoryOwnCraft: function(order, id){
+    destroyOwnCraft: function(order, id){
         var craft = document.querySelector("#craft-" + id);
         if (clearId[id]) {
             clearInterval(clearId[id]);
         }
         craft.parentNode.removeChild(craft);
-    }
+    },
 };
 /**
  * 寄生模式继承飞船对象, 之后增强相关属性
@@ -105,34 +104,23 @@ function createCraft(order) {
     //增强属性, 记录飞船所在的轨道
     craft.order = order;
     /**
-     * 接收Mediator广播的飞行指令, 通过判断是否对自己发出来决定是否采取操作
+     * 信号处理系统
      * @param command
      * @param i
      */
-    craft.startCraft = function(command, i) {
+    craft.signalSystem = function(command, i){
         if (command.id == this.order) {
-            this.startOwnCraft(this.order, i);
-        }
-    };
-    /**
-     * 接收Mediator广播的停止指令, 通过判断是否对自己发出来决定是否采取操作
-     * @param command
-     * @param i
-     */
-    craft.stopCraft = function(command, i) {
-        if (command.id == this.order) {
-            this.stopOwnCraft(this.order, i);
-        }
-    };
-    /**
-     * 接收Mediator广播的摧毁指令, 通过判断是否对自己发出来决定是否采取操作
-     * @param command
-     * @param i
-     */
-    craft.destoryCraft = function(command, i) {
-        if (command.id == this.order) {
-            this.path = 0;
-            this.destoryOwnCraft(this.order, i);
+            switch (command.command) {
+                case "start":
+                    this.startOwnCraft(this.order, i);
+                    break;
+                case "stop":
+                    this.stopOwnCraft(this.order, i);
+                    break;
+                case "destroy":
+                    this.destroyOwnCraft(this.order, i);
+                    break;
+            }
         }
     };
     return craft;

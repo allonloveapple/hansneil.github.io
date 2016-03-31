@@ -7,7 +7,7 @@
  */
 var commander = {
     //指挥官认为自己启动的飞船, 由于丢包率, 会与mediator有出入
-    spaceCraft: [createCraft(1), createCraft(2)],
+    spaceCraft: [true, true, false, false],
     //获得mediator对象
     mediator: mediator(),
     /**
@@ -15,26 +15,24 @@ var commander = {
      * 如果飞船数量超过4个, 则给出警告
      */
     addCraft: function(){
-        var len = this.spaceCraft.length;
-        var craft;
-        if (len < 4) {
+        var spaceCrafts = this.spaceCraft,
+            res = spaceCrafts.every(function(item){
+            return item == true;
+        });
+        if (!res) {
             var controlButton = document.querySelectorAll(".craft-control");
             for (var i = 0; i < 4; i++) {
-                var arr = this.spaceCraft.filter(function(item) {
-                    return item.order == i+1;
-                });
-                if (!arr.length) {
+                if (!spaceCrafts[i]) {
                     break;
                 }
             }
             controlButton[i].className = "craft-control";
             controlButton[i].querySelector(".start").style.display = "block";
             controlButton[i].querySelector(".stop").style.display = "block";
-            craft = createCraft(i+1);
-            this.spaceCraft.push(craft);
+            spaceCrafts[i] = true;
             var html = "[指挥官]:" + (i+1) +"号轨道添加飞船的指令已发送";
             this.mediator.renderConsole(html, true);
-            this.mediator.addOneCraft(craft);
+            this.mediator.addOneCraft(i);
         } else {
             var html = "[指挥官]:轨道已满,请先销毁飞船!!!";
             this.mediator.renderConsole(html);
@@ -45,17 +43,16 @@ var commander = {
      * @param command
      */
     performCommand: function(command) {
-        if (command.command == "destory") {
-            var html = "[指挥官]:" + command.id +"号飞船摧毁指令已发送";
-            this.mediator.renderConsole(html, true);
+        var html;
+        if (command.command == "destroy") {
+            html = "[指挥官]:" + command.id +"号飞船摧毁指令已发送";
             this.removeCraft(command.id);
         } else if (command.command == "start") {
-            var html = "[指挥官]:" + command.id +"号飞船飞行指令已发送";
-            this.mediator.renderConsole(html, true);
+            html = "[指挥官]:" + command.id +"号飞船飞行指令已发送";
         } else {
-            var html = "[指挥官]:" + command.id + "号飞船停止指令已发送";
-            this.mediator.renderConsole(html, true);
+            html = "[指挥官]:" + command.id + "号飞船停止指令已发送";
         }
+        this.mediator.renderConsole(html, true);
         this.mediator.performOneCommander(command);
     },
     /**
@@ -63,15 +60,9 @@ var commander = {
      * @param craft
      */
     removeCraft: function(craft){
-        var crafts = this.spaceCraft;
-        for (var i = 0, len = crafts.length; i < len; i++) {
-            if (crafts[i].order == craft) {
-                break;
-            }
-        }
         var controlButton = document.querySelectorAll(".craft-control");
         controlButton[craft-1].className += " hidden";
-        crafts.splice(i, 1);
+        this.spaceCraft[craft-1] = false;
     },
     /**
      * init: 初始化函数

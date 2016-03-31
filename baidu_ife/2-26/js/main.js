@@ -120,7 +120,7 @@ function initDestoryButton() {
                 var target = event.currentTarget;
                 var command = {
                     id: i + 1,
-                    command: 'destory'
+                    command: 'destroy'
                 };
                 extend(commander, target);
                 target.performCommand(command);

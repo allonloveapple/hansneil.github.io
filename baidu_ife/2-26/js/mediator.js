@@ -28,7 +28,7 @@ var mediator = function() {
             if (oldCraft.length == 0 || j == oldCraft.length && oldCraft[j-1].id.slice(-1) != crafts[i].id) {
                 craft.innerHTML = "<div class='craft-inner'><div class='craft-inner'><span class='energy-text'>100</span><div class='energy'></div></div></div>";
                 craft.className = "craft-model-" + crafts[i].craft.order + " visible";
-                craft.style.transform = "rotate(" + crafts[i].craft.path + "deg)";
+                craft.style.transform = "rotate(0deg)";
                 craft.id = "craft-" + crafts[i].id;
                 orbite.appendChild(craft);
             }
@@ -70,46 +70,12 @@ var mediator = function() {
          * @returns {boolean}
          */
         addOneCraft: function (craft) {
-            //模拟丢包率
-            /*if (Math.floor(Math.random() * 10) > 3) {*/
-                var that = this;
-                var crafts = this.spaceCraft;
-                var renderCraft = renderCrafts;
-                crafts.push({craft: craft, id: globalId++});
-                /*setTimeout(function () {*/
-                    renderCraft(crafts);
-                    var innerHTML = "[消息]:" + craft.order +"号轨道添加飞船成功";
-                    that.renderConsole(innerHTML, true);
-                /*}, 1000);
-                return true;*/
-            /*} else {
-                var innerHTML = "[注意]:增加飞船的命令丢包了!!!!", that = this;
-                setTimeout(function() {
-                    that.renderConsole(innerHTML);
-                }, 1000);
-                return false;
-            }*/
-        },
-        /**
-         * removeOneCraft()函数, 已废弃, 没有用到
-         * @param craft
-         * @returns {boolean}
-         */
-        removeOneCraft: function (craft) {
-            //模拟丢包
-            if (Math.floor(Math.random() * 10) > 3) {
-                var that = this;
-                setTimeout(function () {
-                    that.commander.removeCraft(craft);
-                    var innerHTML = "[消息]:摧毁飞船成功";
-                    that.renderConsole(innerHTML, true);
-                }, 1000);
-                return true;
-            } else {
-                var innerHTML = "[注意]:摧毁飞船的命令丢包了!!!!", that = this;
-                this.renderConsole(innerHTML);
-                return false;
-            }
+            var crafts = this.spaceCraft;
+            var renderCraft = renderCrafts;
+            crafts.push({craft: createCraft(craft+1), id: globalId++});
+            renderCraft(crafts);
+            var innerHTML = "[消息]:" + (craft + 1) +"号轨道添加飞船成功";
+            this.renderConsole(innerHTML, true);
         },
         /**
          * performOneCommander() 接收指挥官的指令, 将指令广播给轨道上的飞船
@@ -124,45 +90,29 @@ var mediator = function() {
                 switch (command.command) {
                     case "start":
                         html = "[消息]:" + command.id + "号飞船启动成功";
-                        setTimeout(function () {
-                            //广播启动指令
-                            for (var i =0; i < crafts.length; i++) {
-                                crafts[i].craft.startCraft(command, crafts[i].id);
-                            }
-                            that.renderConsole(html, true);
-                        }, 1000);
                         break;
                     case "stop":
                         html = "[消息]:" + command.id + "号飞船停止成功";
-                        setTimeout(function () {
-                            for (var i =0; i < crafts.length; i++) {
-                                //广播停止指令
-                                crafts[i].craft.stopCraft(command, crafts[i].id);
-                            }
-                            that.renderConsole(html, true);
-                        }, 1000);
                         break;
-                    case "destory":
+                    case "destroy":
                         html = "[消息]:" + command.id + "号飞船摧毁成功";
-                        setTimeout(function () {
-                            var index = [];
-                            for (var i =0; i < crafts.length; i++) {
-                                //广播摧毁指令
-                                crafts[i].craft.destoryCraft(command, crafts[i].id);
-                                if (crafts[i].craft.order == command.id) {
-                                    index.push(i);
-                                }
-                            }
-                            //删除已经摧毁的飞船实例,注意splice的特殊之处,去掉一项后所有后面的索引都要减1
-                            //bug
-                            index.forEach(function(item, index){
-                                crafts.splice(item-index, 1);
-                            });
-                            that.renderConsole(html, true);
-                        }, 1000);
                         break;
                 }
-                return true;
+                setTimeout(function () {
+                    var index = [];
+                    for (var i =0; i < crafts.length; i++) {
+                        crafts[i].craft.signalSystem(command, crafts[i].id);
+                        if (command.command == 'destroy' && crafts[i].craft.order == command.id) {
+                            index.push(i);
+                        }
+                    }
+                    //删除已经摧毁的飞船实例,注意splice的特殊之处,去掉一项后所有后面的索引都要减1
+                    //bug
+                    index.forEach(function(item, index){
+                        crafts.splice(item-index, 1);
+                    });
+                    that.renderConsole(html, true);
+                }, 1000);
             } else {
                 var html, that = this;
                 switch (command.command) {
@@ -172,14 +122,13 @@ var mediator = function() {
                     case "stop":
                         html = "[注意]:" + command.id + "号飞船的停止命令丢包了!!!!";
                         break;
-                    case "destory":
+                    case "destroy":
                         html = "[注意]:" + command.id + "号飞船的摧毁命令丢包了!!!!";
                         break;
                 }
                 setTimeout(function() {
                     that.renderConsole(html);
                 }, 1000);
-                return false;
             }
         },
         /**
