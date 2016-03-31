@@ -70,10 +70,8 @@ var mediator = function() {
          * @returns {boolean}
          */
         addOneCraft: function (craft) {
-            var crafts = this.spaceCraft;
-            var renderCraft = renderCrafts;
-            crafts.push({craft: createCraft(craft+1), id: globalId++});
-            renderCraft(crafts);
+            this.spaceCraft.push({craft: createCraft(craft+1), id: globalId++});
+            renderCrafts(this.spaceCraft);
             var innerHTML = "[消息]:" + (craft + 1) +"号轨道添加飞船成功";
             this.renderConsole(innerHTML, true);
         },
