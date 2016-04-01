@@ -9,7 +9,7 @@ var commander = {
     //指挥官认为自己启动的飞船, 由于丢包率, 会与mediator有出入
     spaceCraft: [true, true, false, false],
     //获得mediator对象
-    mediator: mediator(),
+    mediator: mediator,
     /**
      * addCraft 向Mediator发送添加飞船的指令
      * 如果飞船数量超过4个, 则给出警告

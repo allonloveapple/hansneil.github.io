@@ -2,12 +2,16 @@
  * Created by hansneil on 27/3/16.
  */
 /**
- * mediator对象, 用于传播指挥官的命令,有一定的丢包率
+ * mediator对象, 用于传播指挥官的命令,有一定的丢包率[模块模式]
   * @returns {{msgArr: Array, spaceCraft: *[], renderConsole: renderConsole, addOneCraft: addOneCraft, removeOneCraft: removeOneCraft, performOneCommander: performOneCommander, init: init}}
  */
-var mediator = function() {
+var mediator = (function() {
     //记录飞船的ID号
-    var globalId = 3;
+    var globalId = 3,
+    //msgArr 存储控制台信息,最多为9条消息, 超过时删除最早添加的消息
+    msgArr = [],
+    //spaceCraft 存储添加到轨道的飞船, 飞船对象{craft: createCraft(), id: number}
+    spaceCraft = [{craft: createCraft(1), id: 1}, {craft:createCraft(2), id:2}];
 
     /**
      * renderCrafts()函数, 根据spaceCraft中存放的飞船来渲染界面
@@ -35,10 +39,6 @@ var mediator = function() {
         }
     }
     return {
-        //msgArr 存储控制台信息,最多为9条消息, 超过时删除最早添加的消息
-        msgArr: [],
-        //spaceCraft 存储添加到轨道的飞船, 飞船对象{craft: createCraft(), id: number}
-        spaceCraft: [{craft: createCraft(1), id: 1}, {craft:createCraft(2), id:2}],
         /**
          * renderConsole() 渲染控制台函数, newMessage表示传入需要添加到控制台的消息, success表示是否为警告信息
          * @param newMessage
@@ -52,14 +52,14 @@ var mediator = function() {
             if (success) {
                 msg.className = "success"
             }
-            if (this.msgArr.length < 9) {
-                this.msgArr.push(msg);
+            if (msgArr.length < 9) {
+                msgArr.push(msg);
             } else {
-                this.msgArr.shift();
-                this.msgArr.push(msg);
+                msgArr.shift();
+                msgArr.push(msg);
             }
-            for (var i = 0; i < this.msgArr.length; i++) {
-                frag.appendChild(this.msgArr[i]);
+            for (var i = 0; i < msgArr.length; i++) {
+                frag.appendChild(msgArr[i]);
             }
             consoles.innerHTML = "";
             consoles.appendChild(frag);
@@ -70,8 +70,8 @@ var mediator = function() {
          * @returns {boolean}
          */
         addOneCraft: function (craft) {
-            this.spaceCraft.push({craft: createCraft(craft+1), id: globalId++});
-            renderCrafts(this.spaceCraft);
+            spaceCraft.push({craft: createCraft(craft+1), id: globalId++});
+            renderCrafts(spaceCraft);
             var innerHTML = "[消息]:" + (craft + 1) +"号轨道添加飞船成功";
             this.renderConsole(innerHTML, true);
         },
@@ -84,7 +84,7 @@ var mediator = function() {
             //模拟丢包
             if (Math.floor(Math.random() * 10) > 3) {
                 var that = this, html;
-                var crafts = this.spaceCraft;
+                var crafts = spaceCraft;
                 switch (command.command) {
                     case "start":
                         html = "[消息]:" + command.id + "号飞船启动成功";
@@ -133,9 +133,9 @@ var mediator = function() {
          * init() 初始化函数
          */
         init: function () {
-            renderCrafts(this.spaceCraft);
+            renderCrafts(spaceCraft);
             var innerHTML = "准备就绪! 请操作";
             this.renderConsole(innerHTML);
         }
     }
-};
+})();
