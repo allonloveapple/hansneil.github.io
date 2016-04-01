@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2-29</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: yaHei;
+            src: url('../1-06/css/font/msyh.ttf');
+        }
+        html, body {
+            font-family: "Microsoft YaHei", yaHei;
+        }
+        form {
+            position: relative;
+            width: 800px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            overflow: auto;
+        }
+        label {
+            float: left;
+            margin-left: -100%;
+            line-height: 40px;
+        }
+        section {
+            float: left;
+            width: 100%;
+        }
+        div {
+            margin: 0 200px 0 80px;
+        }
+        input {
+            display: block;
+            width: 100%;
+            line-height: 20px;
+            font-size: 1rem;
+            font-family: "Microsoft YaHei", yaHei;
+            outline: none;
+            border: 2px solid #ababab;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        span {
+            color: #ababab;
+        }
+        button {
+            float: left;
+            margin-left: -150px;
+            width: 100px;
+            line-height: 40px;
+            background-color: #2e78bb;
+            border: none;
+            color: #ffffff;
+            font-family: "Microsoft YaHei", yaHei;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <section>
+        <div>
+            <input id="name" name="name" type="text">
+            <span>必填,长度为4~16个字符</span>
+        </div>
+    </section>
+    <label>姓名</label>
+    <button type="button">验证</button>
+</form>
+<script>
+    (function(){
+        function validateHandler(event){
+            var target = document.querySelector("#name");
+            var value = target.value, len;
+            var hint = target.nextElementSibling;
+            value = value.trim();
+            len = value.replace(/[^\x00-\xFF]/g, "zh").length;
+            if (len == 0) {
+                target.style.borderColor = "#df422d";
+                hint.innerHTML = "姓名不能为空";
+                hint.style.color = "#df422d";
+            } else if (len < 4) {
+                target.style.borderColor = "#df422d";
+                hint.innerHTML = "长度不能小于4个字符";
+                hint.style.color = "#df422d";
+            } else if (len > 16) {
+                target.style.borderColor = "#df422d";
+                hint.innerHTML = "长度不能大于16个字符";
+                hint.style.color = "#df422d";
+            } else {
+                target.style.borderColor = "#5dbc45";
+                hint.innerHTML = "格式正确";
+                hint.style.color = "#5dbc45";
+            }
+            event.preventDefault();
+        }
+        var validate = document.querySelector("button");
+        validate.addEventListener("click", validateHandler);
+    })();
+</script>
+</body>
+</html>
