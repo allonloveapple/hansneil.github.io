@@ -1,5 +1,5 @@
 /**
- * Created by ice on 16/4/9.
+ * Created by neil on 16/4/9.
  */
 (function(window, undefined) {
     var curvesCanvas = document.querySelector(".bezier-control .default-bezier");
@@ -127,10 +127,10 @@
         compareCanvas.style.transitionTimingFunction = selectedPoint.transition;
         //设置transition代码
         codeExport.innerHTML = "{\n  -webkit-transition: all " + previewCtrl.durationTime() + "s " + selectedPoint.transition +";"
-            + "\n  -moz-transform: all " + previewCtrl.durationTime() + "s " + selectedPoint.transition +";"
-            + "\n  -ms-transform: all " + previewCtrl.durationTime() + "s " + selectedPoint.transition +";"
-            + "\n  -o-transform: all " + previewCtrl.durationTime() + "s " + selectedPoint.transition +";"
-            + "\n  transform: all " + previewCtrl.durationTime() + "s " + selectedPoint.transition +";\n}";
+            + "\n  -moz-transition: all " + previewCtrl.durationTime() + "s " + selectedPoint.transition +";"
+            + "\n  -ms-transition: all " + previewCtrl.durationTime() + "s " + selectedPoint.transition +";"
+            + "\n  -o-transition: all " + previewCtrl.durationTime() + "s " + selectedPoint.transition +";"
+            + "\n  transition: all " + previewCtrl.durationTime() + "s " + selectedPoint.transition +";\n}";
     }
 
     /**
