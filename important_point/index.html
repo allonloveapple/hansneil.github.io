@@ -7,18 +7,37 @@
         input + input {
             font-size: 2rem;
         }
+        a {
+            text-decoration: none;
+            color: black;
+        }
     </style>
 </head>
 <body>
-<form>
-    <input type="text" name="username" value="">
-    <input type="button" value="Echo Username" onclick="getValue()">
-</form>
+<a href="#">123</a>
+<a href="#">123</a>
+<a href="#">123</a>
+<a href="#">123</a>
 <script>
-    function getValue() {
-        var input = document.querySelector('input');
-        console.log(input.getAttribute('value'));
+    document.addEventListener('mouseover', function(event){
+        var ele = event.target;
+        if(ele.tagName.toLowerCase() == 'a') {
+            ele.style.color='red';
+        }
+    })
+    document.addEventListener('mouseout', function(event){
+        var ele = event.target;
+        if(ele.tagName.toLowerCase() == 'a') {
+            ele.style.cssText = '';
+        }
+    })
+    function person(name, age) {
+        console.log(name, age, this);
     }
+    var obj = {con: 'example'};
+    //call
+    var getPerson = person.bind(obj, 'neil');
+    getPerson(24);
 </script>
 </body>
 </html>
