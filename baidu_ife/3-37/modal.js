@@ -7,12 +7,19 @@
         this.isShown = false;
     };
     Modal.prototype.show = function(){
+        var that = this;
         if (this.isShown) {
             return;
         }
         this.isShown = true;
         this.element.classList.remove("hidden");
         this.element.className += " show";
+        document.addEventListener("click", function(event){
+            var element = event.target;
+            if (element.hasAttribute("data-dimiss")){
+                that.hide();
+            }
+        })
     };
     Modal.prototype.hide = function(){
         if (!this.isShown) {
@@ -22,31 +29,25 @@
         this.element.classList.remove("show");
         this.element.className += " hidden";
     };
-    Modal.prototype.init = function(){
-        var that = this;
-        document.addEventListener("click", function(event){
-            var target = event.target;
-            switch (target.nodeName.toLowerCase()) {
-                case "section":
-                case "button":
-                    that.hide();
-                    break;
-            }
-        })
-    };
-    window.modal = function(){
-        var data = this.getAttribute("data-modal");
+
+    window.modal = function(option){
+        var data = this["data-modal"];
         if (!data) {
-            this.setAttribute("data-modal", (data = new Modal(this)));
+            this["data-modal"] = (data = new Modal(this));
         }
-        data.show();
+        if (typeof option == "string") {
+            data[option]();
+        } else {
+            data.show();
+        }
         return this;
     };
 
     document.addEventListener("click", function(event){
-        var element = event.target;
-        var target = document.querySelector(element.getAttribute("data-target"));
-        modal.call(target);
-
+        var element = event.target, target;
+        if (element.hasAttribute("data-target")) {
+            target = document.querySelector(element.getAttribute("data-target"));
+            modal.call(target);
+        }
     })
 })(window);

@@ -7,15 +7,15 @@
 </head>
 <body>
 <button data-target="#modalExample" class="btn btn-primary">显示弹窗</button>
-<section class="modal hidden" id="modalExample">
+<section class="modal hidden" id="modalExample" data-dimiss="hide">
     <div class="modal-wrapper">
         <div class="modal-header">
-            <button class="close" type="button">&times;</button>
+            <button class="close" type="button" data-dimiss="hide">&times;</button>
         </div>
         <div class="modal-body">
             <p class="modal-message">这是一个模态弹窗的消息</p>
-            <button class="modal-button cancel" type="button">取消</button>
-            <button class="modal-button success" type="button">确定</button>
+            <button class="modal-button cancel" type="button" data-dimiss="hide">取消</button>
+            <button class="modal-button success" type="button" data-dimiss="hide">确定</button>
         </div>
         <div class="modal-footer"></div>
     </div>
