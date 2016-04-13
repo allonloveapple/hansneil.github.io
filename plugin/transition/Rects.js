@@ -154,7 +154,8 @@
                     item.classList.remove("selected");
                     //重绘canvas
                     previewCtrl.drawBezier(item, selectedPoint, false, "#000");
-                } else if (target.getAttribute('data-type') == type) {
+                }
+                if (target.getAttribute('data-type') == type) {
                     //重绘当前选中的canvas和compareCanvas
                     handleSelected(selectedPoint, target);
                 }
