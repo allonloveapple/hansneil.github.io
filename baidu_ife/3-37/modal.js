@@ -2,6 +2,11 @@
  * Created by hansneil on 12/4/16.
  */
 (function(window, undefined){
+    function extend(obj, extension) {
+        for (var key in obj) {
+            extension[key] = obj[key];
+        }
+    }
     var Modal = function(element){
         this.element = element;
         this.isShown = false;
@@ -22,6 +27,7 @@
         })
     };
     Modal.prototype.hide = function(){
+        console.log(this.isShown);
         if (!this.isShown) {
             return;
         }
@@ -34,13 +40,13 @@
         var data = this["data-modal"];
         if (!data) {
             this["data-modal"] = (data = new Modal(this));
+            extend(data, this);
         }
         if (typeof option == "string") {
-            data[option]();
+            this[option]();
         } else {
-            data.show();
+            this.show();
         }
-        return this;
     };
 
     document.addEventListener("click", function(event){
