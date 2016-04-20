@@ -4,40 +4,186 @@
     <meta charset="utf-8">
     <title>IFE JavaScript Task 01</title>
     <style>
-        input + input {
-            font-size: 2rem;
+        /*.wrapper {
+            width: 300px;
+            height: 300px;
         }
-        a {
-            text-decoration: none;
-            color: black;
+        .element {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            background: -webkit-linear-gradient(left, #ba59a6 0%, #69aed8 50%, #1c12a8 100%);
+            background: linear-gradient(to right, #ba59a6 0%, #69aed8 50%, #1c12a8 100%);
+        }
+        .element, .element:after {
+            !*-webkit-clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+            clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+            -webkit-clip-path: url("#polygon-clip-rhombus");
+            clip-path: url("#polygon-clip-rhombus");*!
+            !*-webkit-clip-path: polygon(50% 0, 100% 30%, 50% 100%, 0 30%);
+            clip-path: polygon(50% 0, 100% 30%, 50% 100%, 0 30%);
+            -webkit-clip-path: url("#polygon-clip-kite");
+            clip-path: url("#polygon-clip-kite");*!
+            !*-webkit-clip-path: polygon(30% 0, 50% 0, 100% 100%, 30% 0);
+            clip-path: polygon(30% 0, 50% 0, 100% 100%, 30% 0);
+            -webkit-clip-path: url("#polygon-clip-trapezoid");
+            clip-path: url("#polygon-clip-trapezoid");*!
+            -webkit-clip-path: polygon(50% 0, 100% 86.6%, 0 86.6%);
+            clip-path: polygon(50% 0, 100% 86.6%, 0 86.6%);
+            !*-webkit-clip-path: url("#polygon-clip-triangle-equilateral");
+            clip-path: url("#polygon-clip-triangle-equilateral");*!
+        }
+        .element:after {
+            content: "";
+            position: absolute;
+            background-color: #fff;
+            top: 8px;
+            right: 8px;
+            bottom: 8px;
+            left: 8px;
+        }*/
+        .wrapper {
+            width: 604px;
+            height: 604px;
+        }
+        .element {
+            position: relative;
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            background-image: url("http://karenmenezes.com/shapes-polygon/clip-demo.jpg");
+            background-repeat: no-repeat;
+            -webkit-clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+            clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+            -webkit-clip-path: url("#polygon-clip-rhombus");
+            clip-path: url("#polygon-clip-rhombus");
+        }
+        .part-1 {
+            margin: 0 152px -150px 152px;
+            background-position: -200px 0px;
+        }
+        .part-2 {
+            background-position: -300px -100px;
+        }
+        .part-3 {
+            background-position: -200px -300px;
+        }
+        .part-4 {
+            margin: -150px 152px 0 152px;
+            background-position: -300px -300px;
+        }
+        .mask {
+            width: 100%;
+            height: 100%;
+            background-color: #aaaaaa;
+            opacity: .8;
+            -webkit-transition: all 1.5s ease;
+            -moz-transition: all 1.5s ease;
+            -ms-transition: all 1.5s ease;
+            -o-transition: all 1.5s ease;
+            transition: all 1.5s ease;
+        }
+        .mask:hover {
+            background: none;
+            cursor: pointer;
+        }
+        .content {
+            color: rgba(255, 255, 255, .8);
+            font-size: 200%;
+            font-weight: bolder;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
 <body>
-<a href="#">123</a>
-<a href="#">123</a>
-<a href="#">123</a>
-<a href="#">123</a>
-<script>
-    document.addEventListener('mouseover', function(event){
-        var ele = event.target;
-        if(ele.tagName.toLowerCase() == 'a') {
-            ele.style.color='red';
-        }
-    })
-    document.addEventListener('mouseout', function(event){
-        var ele = event.target;
-        if(ele.tagName.toLowerCase() == 'a') {
-            ele.style.cssText = '';
-        }
-    })
-    function person(name, age) {
-        console.log(name, age, this);
-    }
-    var obj = {con: 'example'};
-    //call
-    var getPerson = person.bind(obj, 'neil');
-    getPerson(24);
-</script>
+<div class="wrapper">
+    <div class="element part-1"></div>
+    <div class="element part-2">
+        <div class="content">Portraits</div>
+        <div class="mask"></div>
+    </div>
+    <div class="element part-3">
+        <div class="content">Scenery</div>
+        <div class="mask"></div>
+    </div>
+    <div class="element part-4">
+        <div class="content">Travel</div>
+        <div class="mask"></div>
+    </div>
+</div>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="clip-shape" clipPathUnits="objectBoundingBox">
+            <polygon points="0 1, 0 0, 1 0, 0.8 1"></polygon>
+        </clipPath>
+    </defs>
+</svg>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="polygon-clip-rhombus" clipPathUnits="objectBoundingBox">
+            <polygon points="0 0.5, 0.5 0, 1 0.5, 0.5 1"></polygon>
+        </clipPath>
+    </defs>
+</svg>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="polygon-clip-square" clipPathUnits="objectBoundingBox">
+            <polygon points="0.1 0.1, 0.9 0.1, 0.9 0.9, 0.1 0.9"></polygon>
+        </clipPath>
+    </defs>
+</svg>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="polygon-clip-rectangle" clipPathUnits="objectBoundingBox">
+            <polygon points="0.1 0, 0.9 0, 0.9 1, 0.1 1"></polygon>
+        </clipPath>
+    </defs>
+</svg>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="polygon-clip-rhomboid" clipPathUnits="objectBoundingBox">
+            <polygon points="0.3 0, 1 0, 0.7 1, 0 1"></polygon>
+        </clipPath>
+    </defs>
+</svg>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="polygon-clip-kite" clipPathUnits="objectBoundingBox">
+            <polygon points="0.5 0, 1 0.3, 0.5 1, 0 0.3"></polygon>
+        </clipPath>
+    </defs>
+</svg>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="polygon-clip-trapezoid" clipPathUnits="objectBoundingBox">
+            <polygon points="0.3 0, 0.5 0, 1 1, 0.3 1"></polygon>
+        </clipPath>
+    </defs>
+</svg>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="polygon-clip-trapezoid-isosceles" clipPathUnits="objectBoundingBox">
+            <polygon points="0.3 0, 0.7 0, 1 1, 0 1"></polygon>
+        </clipPath>
+    </defs>
+</svg>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="polygon-clip-triangle-equilateral" clipPathUnits="objectBoundingBox">
+            <polygon points="0.5 0, 1 0.866, 0 0.866"></polygon>
+        </clipPath>
+    </defs>
+</svg>
+<svg class="clip-svg" width="0" height="0">
+    <defs>
+        <clipPath id="polygon-clip-triangle-isosceles" clipPathUnits="objectBoundingBox">
+            <polygon points="0.5 0, 1 1, 0 0"></polygon>
+        </clipPath>
+    </defs>
+</svg>
 </body>
 </html>

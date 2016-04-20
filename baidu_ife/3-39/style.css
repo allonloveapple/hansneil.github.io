@@ -1,0 +1,142 @@
+.wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    height: 600px;
+}
+.photo {
+    position: absolute;
+    background-size: cover;
+}
+.ph-one-layout {
+    width: 100%;
+    height: 100%;
+    background-image: url("img/1.jpg");
+    background-position: center;
+}
+.ph-two-left, .ph-two-right {
+    width: 66.7%;
+    height: 100%;
+}
+.ph-two-left {
+    background-image: url("img/2.jpg");
+    -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+}
+.ph-two-right {
+    left: 33.3%;
+    background-image: url("img/3.jpg");
+    -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+}
+.ph-three-left {
+    width: 75%;
+    height: 100%;
+    background-image: url("img/4.jpg");
+}
+.ph-three-right-top {
+    width: 25%;
+    height: 50%;
+    left: 75%;
+    background-image: url("img/5.jpg");
+}
+.ph-three-right-bottom {
+    width: 25%;
+    height: 50%;
+    top: 50%;
+    left: 75%;
+    background-image: url("img/6.jpg");
+}
+.ph-four-left-top {
+    width: 50%;
+    height: 50%;
+    background-image: url("img/7.jpg");
+}
+.ph-four-left-bottom {
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    background-image: url("img/8.jpg");
+}
+.ph-four-right-top {
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    background-image: url("img/9.jpg");
+}
+.ph-four-right-bottom {
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    background-image: url("img/1.jpg");
+}
+.ph-five-left-top {
+    width: 66.7%;
+    height: 66.7%;
+    background-image: url("img/2.jpg");
+}
+.ph-five-left-bottom-left {
+    width: 33.3%;
+    height: 33.3%;
+    top: 66.7%;
+    background-image: url("img/3.jpg");
+}
+.ph-five-left-bottom-right {
+    width: 33.3%;
+    height: 33.3%;
+    top: 66.7%;
+    left: 33.3%;
+    background-image: url("img/4.jpg");
+}
+.ph-five-right-top {
+    width: 33.3%;
+    height: 66.7%;
+    left: 66.7%;
+    background-image: url("img/5.jpg");
+}
+.ph-five-right-bottom {
+    width: 33.3%;
+    height: 33.3%;
+    top: 66.7%;
+    left: 66.7%;
+    background-image: url("img/6.jpg");
+}
+.ph-six-left-top {
+    width: 66.7%;
+    height: 66.7%;
+    background-image: url("img/7.jpg");
+}
+.ph-six-left-bottom-left {
+    width: 33.3%;
+    height: 33.3%;
+    top: 66.7%;
+    background-image: url("img/8.jpg");
+}
+.ph-six-left-bottom-right {
+    width: 33.3%;
+    height: 33.3%;
+    top: 66.7%;
+    left: 33.3%;
+    background-image: url("img/9.jpg");
+}
+.ph-six-right-top {
+    width: 33.3%;
+    height: 33.3%;
+    left: 66.7%;
+    background-image: url("img/1.jpg");
+}
+.ph-six-right-middle {
+    width: 33.3%;
+    height: 33.3%;
+    top: 33.3%;
+    left: 66.7%;
+    background-image: url("img/2.jpg");
+}
+.ph-six-right-bottom {
+    width: 33.3%;
+    height: 33.3%;
+    top: 66.7%;
+    left: 66.7%;
+    background-image: url("img/3.jpg");
+}
