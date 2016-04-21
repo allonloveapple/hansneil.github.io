@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waterfall</title>
+    <link rel="stylesheet" href="css/waterfall.css" />
+</head>
+<body>
+<section class="wrapper">
+    <div class="col-1 outer-column"></div>
+    <div class="col-2 outer-column"></div>
+    <div class="col-3 outer-column"></div>
+    <div class="col-4 outer-column"></div>
+</section>
+<script src="js/modal.js"></script>
+<script src="js/waterfall.js"></script>
+<script src="js/app.js"></script>
+<script>
+    var app = new Application(new Waterfall(4));
+    app.init();
+</script>
+</body>
+</html>
