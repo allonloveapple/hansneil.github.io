@@ -14,9 +14,9 @@ Modal.prototype.show = function(source, section){
     image.src = source;
     image.className = "large";
     if (image.width / document.body.clientWidth > image.height / document.body.clientHeight) {
-        image.style.width = document.body.clientWidth * 0.8 + "px";
+        image.style.width = document.body.clientWidth * 0.9 + "px";
     } else {
-        image.style.height = document.body.clientHeight * 0.8 + "px";
+        image.style.height = document.body.clientHeight * 0.9 + "px";
     }
     sec.appendChild(span);
     sec.appendChild(image);

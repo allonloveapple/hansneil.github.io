@@ -16,21 +16,20 @@ Waterfall.prototype.init = function(){
 };
 Waterfall.prototype.getMinColumn = function(){
     var columns = document.querySelectorAll(".outer-column");
-    var colArr = Array.prototype.slice.call(columns, 0);
-    var minCol = 0, minHeight = colArr[0].clientHeight;
-    colArr.forEach(function (item, index) {
-        if (item.clientHeight < minHeight) {
-            minHeight = item.clientHeight;
-            minCol = index;
+    var minCol = columns[0];
+    for (var i = 0; i < columns.length; i++) {
+        if (columns[i].clientHeight < minCol.clientHeight) {
+            minCol = columns[i];
         }
-    });
-    return colArr[minCol];
+    }
+    return minCol;
 };
 Waterfall.prototype.getPhotos = function(page){
     var data, col;
-    var url = "http://www.hansneil.com/gallery?page=" + (page || 0);
+    var url = "http://localhost:3000/gallery?page=" + (page || 0);
     var xhr = new XMLHttpRequest();
     var that = this;
+    var img = "";
     that.loading = true;
     xhr.open('get', url, true);
     xhr.addEventListener("loadstart", function(event){
@@ -42,6 +41,7 @@ Waterfall.prototype.getPhotos = function(page){
     xhr.addEventListener("load", function (event) {
         document.body.removeChild(that.waiting);
         data = JSON.parse(xhr.responseText);
+        console.log(data);
     }, false);
     xhr.addEventListener("loadend", function (event) {
         data.forEach(function (item) {
