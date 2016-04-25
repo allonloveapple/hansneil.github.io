@@ -12,6 +12,10 @@ Bucket.prototype.init = function(){
     this.bucket.className = "photo-wrapper";
     this.counter = 0;
     this.root = document.querySelector(".wrapper");
+    this.wrapperWidth = document.body.clientWidth - 20;
+    this.max = this.wrapperWidth / 250;
+    this.min = (this.wrapperWidth > 768) ? 3 : 1;
+    document.body.style.minWidth = document.body.clientWidth + "px";
 };
 Bucket.prototype.getMinColumn = function(){
     var columns = document.querySelectorAll(".outer-column");
@@ -43,14 +47,14 @@ Bucket.prototype.getPhotos = function(page){
     }, false);
     xhr.addEventListener("loadend", function (event) {
         for (var i = 0; i < data.length; i++) {
-            if (that.bucketContainer <= 5 && i != data.length - 1) {
+            if (that.bucketContainer <= that.max && i != data.length - 1) {
                 that.bucketContainer += data[i].width / data[i].height;
                 that.counter++;
                 that.bucket.innerHTML += "<div class='inner-wrapper' data-large='" +
                     data[i].url.large + "'><div class='mask-wrapper hidden'><div class='mask trans'></div><p class='title trans'>" +
                     data[i].name + "</p><img class='preview' src='" + data[i].url.small +  "' data-order='" + i + "'/></div>";
-            } else if (that.bucketContainer > 5 && i != data.length - 1){
-                that.bucket.style.height = (1366 - that.counter * 10) / that.bucketContainer + "px";
+            } else if (that.bucketContainer > that.max && i != data.length - 1){
+                that.bucket.style.height = (that.wrapperWidth - that.counter * 10) / that.bucketContainer + "px";
                 that.bucketContainer = data[i].width / data[i].height;
                 that.counter = 0;
                 that.root.appendChild(that.bucket);
@@ -65,9 +69,9 @@ Bucket.prototype.getPhotos = function(page){
                 that.bucket.innerHTML += "<div class='inner-wrapper' data-large='" +
                     data[i].url.large + "'><div class='mask-wrapper hidden'><div class='mask trans'></div><p class='title trans'>" +
                     data[i].name + "</p><img class='preview' src='" + data[i].url.small +  "' data-order='" + i + "'/></div>";
-                that.bucket.style.height = (i == data.length - 1 && that.counter < 3) ? "200px" : (1366 - that.counter * 10) / that.bucketContainer + "px";
+                that.bucket.style.height = (i == data.length - 1 && that.counter < that.min) ? "200px" : (that.wrapperWidth - that.counter * 10) / that.bucketContainer + "px";
                 that.root.appendChild(that.bucket);
-                if (that.counter >= 3) {
+                if (that.counter >= that.min) {
                     that.init();
                 }
             }
