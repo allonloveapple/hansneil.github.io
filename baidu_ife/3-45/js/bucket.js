@@ -25,7 +25,7 @@ Bucket.prototype.getMinColumn = function(){
 };
 Bucket.prototype.getPhotos = function(page){
     var data;
-    var url = "http://localhost:3000/gallery?page=" + (page || 0);
+    var url = "http://www.hansneil.com/gallery?page=" + (page || 0);
     var xhr = new XMLHttpRequest();
     var that = this;
     var img = "";
