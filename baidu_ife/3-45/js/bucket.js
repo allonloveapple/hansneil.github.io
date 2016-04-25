@@ -25,7 +25,7 @@ Bucket.prototype.getMinColumn = function(){
 };
 Bucket.prototype.getPhotos = function(page){
     var data;
-    var url = "http://www.hansneil.com/gallery?page=" + (page || 0);
+    var url = "http://localhost:3000/gallery?page=" + (page || 0);
     var xhr = new XMLHttpRequest();
     var that = this;
     var img = "";
@@ -40,7 +40,6 @@ Bucket.prototype.getPhotos = function(page){
     xhr.addEventListener("load", function (event) {
         document.body.removeChild(that.waiting);
         data = JSON.parse(xhr.responseText);
-        console.log(data);
     }, false);
     xhr.addEventListener("loadend", function (event) {
         for (var i = 0; i < data.length; i++) {
