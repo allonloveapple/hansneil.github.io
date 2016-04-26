@@ -68,7 +68,7 @@ Bucket.prototype.renderBucket = function(){
     this.loading = false;
 };
 Bucket.prototype.getPhotos = function(page){
-    var url = "http://localhost:3000/gallery?page=" + (page || 0);
+    var url = "http://www.hansneil.com/gallery?page=" + (page || 0);
     var xhr = new XMLHttpRequest();
     this.loading = true;
     xhr.open('get', url, true);
