@@ -5,14 +5,14 @@ function Application(gallery){
     this.gallery = gallery;
     this.modal = new Modal();
     this.page = 1;
-}
+};
 Application.prototype.init = function(){
     this.gallery.getPhotos(this.page++);
     window.addEventListener("scroll", this.scroll.bind(this));
     document.addEventListener("click", this.click.bind(this));
     document.addEventListener("mouseover", this.mouseover.bind(this));
     document.addEventListener("mouseout", this.mouseout.bind(this));
-}
+};
 Application.prototype.click = function(event){
     var target = event.target;
     if (target.className.indexOf("trans") > -1) {
@@ -20,6 +20,8 @@ Application.prototype.click = function(event){
         this.modal.show(source, this.gallery.waiting);
     } else if (target.className.indexOf("close") > -1) {
         this.modal.hide(target.parentNode);
+    } else if (target.className.indexOf("modal") > -1) {
+        this.modal.hide(target);
     }
 };
 Application.prototype.mouseover = function(event){
@@ -35,7 +37,12 @@ Application.prototype.mouseout = function(event){
     }
 };
 Application.prototype.scroll = function (event){
-    if (document.body.scrollTop + document.body.clientHeight >= document.body.scrollHeight && !this.gallery.loading) {
-        this.gallery.getPhotos(this.page++);
+    if (document.querySelector(".modal")) {
+        document.body.className = "forbid";
+        return;
+    } else {
+        if (document.body.scrollTop + document.body.clientHeight >= document.body.scrollHeight && !this.gallery.loading) {
+            this.gallery.getPhotos(this.page++);
+        }
     }
 };
