@@ -1,82 +1,79 @@
 /**
  * Created by hansneil on 21/4/16.
  */
-function Bucket(){
+function Bucket(min, max){
     this.loading = false;
     this.waiting = null;
+    this.data = null;
+    this.root = document.querySelector(".wrapper");
+    this.wrapperWidth = document.body.clientWidth - 30;
+    this.maxRatio = this.wrapperWidth / 250;
+    this.max = max || 6;
+    this.min = min || 3;
+    document.body.style.minWidth = document.body.clientWidth + "px";
     this.init();
 }
-Bucket.prototype.init = function(){
-    this.bucketContainer = 0;
+Bucket.prototype.init = function(container, counter){
+    this.bucketContainer = container || 0;
     this.bucket = document.createElement("div");
     this.bucket.className = "photo-wrapper";
-    this.counter = 0;
-    this.root = document.querySelector(".wrapper");
-    this.wrapperWidth = document.body.clientWidth - 20;
-    this.max = this.wrapperWidth / 250;
-    this.min = (this.wrapperWidth > 768) ? 3 : 1;
-    document.body.style.minWidth = document.body.clientWidth + "px";
+    this.counter = counter || 0;
 };
-Bucket.prototype.getMinColumn = function(){
-    var columns = document.querySelectorAll(".outer-column");
-    var minCol = columns[0];
-    for (var i = 0; i < columns.length; i++) {
-        if (columns[i].clientHeight < minCol.clientHeight) {
-            minCol = columns[i];
-        }
+Bucket.prototype.loadingAnimation = function(){
+    this.waiting = document.createElement("section");
+    this.waiting.className = "waiting-wrapper";
+    this.waiting.innerHTML = "<span class='waiting red'></span><span class='waiting blue'></span>";
+    document.body.appendChild(this.waiting);
+};
+Bucket.prototype.parseData = function(xhr){
+    document.body.removeChild(this.waiting);
+    this.data = JSON.parse(xhr.responseText);
+};
+Bucket.prototype.renderTemplate = function(largeUrl, photoName, previewUrl){
+    return "<div class='inner-wrapper' data-large='" +
+        largeUrl + "'><div class='mask-wrapper hidden'><div class='mask trans'></div><p class='title trans'>" +
+        photoName + "</p><img class='preview' src='" + previewUrl +  "' /></div>";
+};
+Bucket.prototype.calcHeight = function(fixed){
+    if (fixed) {
+        return "200px";
+    } else {
+        return (this.wrapperWidth - this.counter * 10) / this.bucketContainer + "px";
     }
-    return minCol;
 };
-Bucket.prototype.getPhotos = function(page){
-    var data;
-    var url = "http://www.hansneil.com/gallery?page=" + (page || 0);
-    var xhr = new XMLHttpRequest();
-    var that = this;
-    var img = "";
-    that.loading = true;
-    xhr.open('get', url, true);
-    xhr.addEventListener("loadstart", function(event){
-        that.waiting = document.createElement("section");
-        that.waiting.className = "waiting-wrapper";
-        that.waiting.innerHTML = "<span class='waiting red'></span><span class='waiting blue'></span>";
-        document.body.appendChild(that.waiting);
-    });
-    xhr.addEventListener("load", function (event) {
-        document.body.removeChild(that.waiting);
-        data = JSON.parse(xhr.responseText);
-    }, false);
-    xhr.addEventListener("loadend", function (event) {
-        for (var i = 0; i < data.length; i++) {
-            if (that.bucketContainer <= that.max && i != data.length - 1) {
-                that.bucketContainer += data[i].width / data[i].height;
-                that.counter++;
-                that.bucket.innerHTML += "<div class='inner-wrapper' data-large='" +
-                    data[i].url.large + "'><div class='mask-wrapper hidden'><div class='mask trans'></div><p class='title trans'>" +
-                    data[i].name + "</p><img class='preview' src='" + data[i].url.small +  "' data-order='" + i + "'/></div>";
-            } else if (that.bucketContainer > that.max && i != data.length - 1){
-                that.bucket.style.height = (that.wrapperWidth - that.counter * 10) / that.bucketContainer + "px";
-                that.bucketContainer = data[i].width / data[i].height;
-                that.counter = 0;
-                that.root.appendChild(that.bucket);
-                that.bucket = document.createElement("div");
-                that.bucket.className = "photo-wrapper";
-                that.bucket.innerHTML += "<div class='inner-wrapper' data-large='" +
-                    data[i].url.large + "'><div class='mask-wrapper hidden'><div class='mask trans'></div><p class='title trans'>" +
-                    data[i].name + "</p><img class='preview' src='" + data[i].url.small +  "' data-order='" + i + "'/></div>";
-            } else if (i == data.length - 1) {
-                that.bucketContainer += data[i].width / data[i].height;
-                that.counter++;
-                that.bucket.innerHTML += "<div class='inner-wrapper' data-large='" +
-                    data[i].url.large + "'><div class='mask-wrapper hidden'><div class='mask trans'></div><p class='title trans'>" +
-                    data[i].name + "</p><img class='preview' src='" + data[i].url.small +  "' data-order='" + i + "'/></div>";
-                that.bucket.style.height = (i == data.length - 1 && that.counter < that.min) ? "200px" : (that.wrapperWidth - that.counter * 10) / that.bucketContainer + "px";
-                that.root.appendChild(that.bucket);
-                if (that.counter >= that.min) {
-                    that.init();
-                }
+Bucket.prototype.renderBucket = function(){
+    var data = this.data;
+    for (var i = 0; i < data.length; i++) {
+        if (i != data.length - 1) {
+            if (this.bucketContainer <= this.maxRatio && ++this.counter <= this.max) {
+                this.bucketContainer += data[i].width / data[i].height;
+                this.bucket.innerHTML += this.renderTemplate(data[i].url.large, data[i].name, data[i].url.small);
+            } else {
+                this.bucket.style.height = this.calcHeight(0);
+                this.root.appendChild(this.bucket);
+                this.init(data[i].width / data[i].height, 1);
+                this.bucket.innerHTML += this.renderTemplate(data[i].url.large, data[i].name, data[i].url.small);
+            }
+        } else {
+            this.bucketContainer += data[i].width / data[i].height;
+            this.counter++;
+            this.bucket.innerHTML += this.renderTemplate(data[i].url.large, data[i].name, data[i].url.small);
+            this.bucket.style.height = this.calcHeight(this.counter < this.min);
+            this.root.appendChild(this.bucket);
+            if (this.counter >= this.min) {
+                this.init();
             }
         }
-        that.loading = false;
-    }, false);
+    }
+    this.loading = false;
+};
+Bucket.prototype.getPhotos = function(page){
+    var url = "http://localhost:3000/gallery?page=" + (page || 0);
+    var xhr = new XMLHttpRequest();
+    this.loading = true;
+    xhr.open('get', url, true);
+    xhr.addEventListener("loadstart", this.loadingAnimation.bind(this));
+    xhr.addEventListener("load", this.parseData.bind(this, xhr));
+    xhr.addEventListener("loadend", this.renderBucket.bind(this));
     xhr.send(null);
 };
