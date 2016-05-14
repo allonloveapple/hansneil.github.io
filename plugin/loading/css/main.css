@@ -6,6 +6,8 @@ body {
     font-family: "axis";
 }
 ul {
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 .round li, .shadow li {
