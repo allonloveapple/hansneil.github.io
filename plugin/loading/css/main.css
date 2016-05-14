@@ -182,6 +182,10 @@ p.signature {
     padding: 0;
     line-height: calc(30px - 2px);
 }
+.signature a {
+    text-decoration: none;
+    color: #7bcbd4;
+}
 .image {
     display: block;
     width: 50px;
