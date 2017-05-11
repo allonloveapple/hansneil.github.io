@@ -6,81 +6,196 @@
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
 
 	<title>HTML canvas video player</title>
+	<style rel="stylesheet" href="./demo/demo.css"></style>
+	<style>
+		body {
+			background: #fdfdfd;
+		}
 
-	<link rel="stylesheet" href="https://stanko.github.io/skyblue/css/skyblue.css">
-	<link rel="stylesheet" href="demo/demo.css">
+		.color-grey {
+			color: #aaa;
+		}
+
+		.header {
+			border-bottom: 1px solid #ddd;
+			margin-bottom: 20px;
+			background: #fff;
+		}
+
+		.video-wrapper {
+			position: relative;
+			margin: 0 auto;
+			max-width: 800px;
+		}
+
+		.content {
+			position: relative;
+			margin: 0 auto;
+			padding: 20px;
+			max-width: 840px;
+		}
+
+		.video-responsive {
+			padding-bottom: 56.25%;
+			position: relative;
+			width: 100%;
+		}
+
+		.canvas,
+		.video {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			background: #000;
+			z-index: 5;
+			cursor: pointer;
+		}
+
+		.video-timeline {
+			background: rgba(255, 255, 255, 0.4);
+			bottom: 0;
+			cursor: pointer;
+			height: 2px;
+			left: 0;
+			opacity: 1;
+			position: absolute;
+			transition: all 0.2s;
+			width: 100%;
+			z-index: 12;
+		}
+
+		.video-timeline-passed {
+			background: #E81D31;
+			height: 100%;
+			width: 0;
+		}
+		@media screen and (min-width: 768px) {
+			.video-timeline-passed {
+				background: rgba(255, 255, 255, 0.7);
+			}
+		}
+
+
+		.video-wrapper:hover .video-timeline {
+			height: 2px;
+			opacity: 0.85;
+		}
+
+		.video-wrapper:hover .video-timeline-passed {
+			background: #E81D31;
+		}
+
+		.video-wrapper:hover .video-event {
+			bottom: 12px;
+		}
+
+		.video-wrapper:hover .video-timeline-event {
+			background: #790c17;
+			opacity: 0.8;
+		}
+	</style>
 </head>
 
 <body>
-	<!--<div class="video-wrapper js-video-wrapper">
-		<div class="video-responsive">
-			<video class="video js-video" -webkit-autoplay autoplay playsinline muted preload="auto">
-				<source src="http://ecmb.bdimg.com/cae-legoup-video-target/84a71337-68a4-43cc-8aa4-f06746d37f50.mp4" type="video/mp4">
-				Your browser does not support HTML5 video.
-			</video>
+<div class="wrapper"></div>
+<script>
+    var iosDiv = '<div class="video-wrapper js-video-wrapper"> ' +
+        '<div class="video-responsive"> ' +
+        '<video class="video js-video" -webkit-autoplay autoplay playsinline muted preload="auto"> ' +
+        '<source src="b.mp4" type="video/mp4"> ' +
+        '</video> ' +
+        '<canvas class="canvas js-canvas"></canvas> ' +
+        '<div class="video-timeline js-timeline"> ' +
+        '<div class="video-timeline-passed js-timeline-passed"></div> ' +
+        '</div> ' +
+        '</div> ' +
+        '</div>';
+    var androidDiv = '<div class="jsmpeg" data-url="out.ts" ' +
+        'data-loop="true" data-autoplay="true" data-controls="false" ' +
+        'data-disable-gl="true" data-audio="false" data-streaming="true" data-progressive="false"></div>';
+    var ios10Div = '<div class="video-wrapper js-video-wrapper"> ' +
+        '<div class="video-responsive"> ' +
+        '<video class="video js-video" -webkit-autoplay autoplay loop playsinline muted preload="auto"> ' +
+        '<source src="b.mp4" type="video/mp4"> ' +
+        '</video> ' +
+        '</div> ' +
+        '</div>';
+    var wrapper = document.querySelector('.wrapper');
+    var ua = navigator.userAgent;
+    function isIos() {
+        function isIpad() {
+            var matches = ua.match(/(iPad).*OS\s([\d_]+)/);
+            if (!matches) {
+                return false;
+            }
+            return parseInt(matches[2].replace(/_/g, '.'));
+        }
+        function isIphone() {
+            var matches = ua.match(/(iPhone\sOS)\s([\d_]+)/);
+            if (!matches) {
+                return false;
+            }
+            return parseInt(matches[2].replace(/_/g, '.'));
+        }
 
-			<canvas class="canvas js-canvas"></canvas>
+        return isIphone() || isIpad();
+    }
 
-			<div class="video-timeline js-timeline">
-				<div class="video-timeline-passed js-timeline-passed">
-				</div>
-			</div>
-		</div>
-	</div>
+    function isAndroid() {
+        var matches = ua.match(/(Android|Adr);?[\s\/]+([\d.]+)?/);
+        if (!matches) {
+            return false;
+        }
+        return matches[2];
+    }
 
-	<script src="js/jquery.min.js"></script>
-	<script src="demo/fastclick.js"></script>
-	<script src="demo/demo.js"></script>
+    function safariOrChrome() {
+        if (ua.indexOf('Safari') !== -1 || ua.indexOf('Chrome') !== -1) {
+            if (ua.indexOf('QQ') == -1 && ua.indexOf('Baidu') == -1) {
+                return true;
+            }
+        }
+    }
 
-	<script src="js/canvas-video-player.js"></script>
+    function tpl(ele) {
+        wrapper.innerHTML = ele;
+    }
 
+    if (isIos() >= 10 && safariOrChrome()) {
+        tpl(ios10Div);
+    }
+    else if (isIos()) {
+        tpl(iosDiv);
+    }
+    else {
+        tpl(androidDiv);
+    }
+</script>
+<script src="js/canvas-video-player.js"></script>
+<script src="js/jsmpeg.min.js"></script>
 
-	<script>
-		var canvasVideo = new CanvasVideoPlayer({
-			videoSelector: '.js-video',
-			canvasSelector: '.js-canvas',
-			timelineSelector: '.js-timeline',
-			audio: false,
+<script>
+    if (isIos() >= 10 && safariOrChrome()) {
+
+    }
+    else if (isIos()) {
+        var canvasVideo = new CanvasVideoPlayer({
+            videoSelector: '.js-video',
+            canvasSelector: '.js-canvas',
+            timelineSelector: '.js-timeline',
+            hideVideo: true,
+            audio: false,
+            loop: true,
             autoplay: true,
             framesPerSecond: 25
-		});
-	</script>-->
-	<style>
-		div.jsmpeg div {
-			display: none;
-		}
-		.main-page {
-			position: absolute;
-			width: 100%;
-			height: 0px;
-			padding-bottom: 56.25%;
-			background-color: rgba(155, 155, 155, .5);
-			z-index: 10;
-		}
-		.button {
-			margin: 100px auto;
-			width: 25%;
-		}
-		.button a {
-			display: inline-block;
-			padding: 5px;
-			width: 100%;
-			text-align: center;
-			border: 1px solid #fff;
-			background-color: rgba(255, 255, 255, .2);
-			color: #fff;
-		}
-	</style>
-	<script src="js/jsmpeg.min.js"></script>
-	<div class="main-page">
-		<div class="wrapper">
-			<div class="button">
-				<a href="http://www.baidu.com">立即预约</a>
-			</div>
-		</div>
-	</div>
-	<div class="jsmpeg" data-url="out.ts"
-		 data-loop="true" data-autoplay="true" data-controls="false" data-disable-gl="true"></div>
+        });
+    }
+    else {
+
+    }
+</script>
 
 </body>
 </html>
